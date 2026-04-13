@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0c1d55;
+    height: 70px;
+    padding: 0 2rem;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-radius: 0 0 20px 20px;
+}
+
+
+.logo {
+    height: 50px;
+    width: auto;
+    border-radius: 50%; 
+    position: absolute;
+    left: 2rem;
+}
+
+
+.club-name {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-family: 'Press Start 2P';
+    text-align: center;
+    text-shadow: 2px 2px 0px #000;
+}
