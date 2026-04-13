@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 body {
     background-color: #f4f7f6;
     color: #333;
 }
-
 
 .header-bar {
     display: flex;
@@ -14,27 +13,54 @@ body {
     height: 70px;
     padding: 0 2rem;
     color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     position: sticky;
     top: 0;
     z-index: 1000;
     border-radius: 0 0 20px 20px;
 }
 
-
 .logo {
-    height: 50px;
+    height: 90%;
     width: auto;
-    border-radius: 50%; 
+    border-radius: 50%;
     position: absolute;
     left: 2rem;
 }
 
-
 .club-name {
     font-size: 1.2rem;
     letter-spacing: 1px;
-    font-family: 'Press Start 2P';
+    font-family: "Press Start 2P";
     text-align: center;
-    text-shadow: 2px 2px 0px #000;
+    text-shadow: 2px 2px 0px #8e8a8a;
+}
+
+.glass-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    z-index: 1000;
+}
+
+.glass-nav a {
+    text-decoration: none;
+    color: #0c1d55;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.glass-nav a:hover {
+    color: #4caf50;
+    text-shadow: 0px 0px 8px rgba(76, 175, 80, 0.6);
 }
