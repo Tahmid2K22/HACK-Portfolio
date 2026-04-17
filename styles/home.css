@@ -87,3 +87,87 @@ body {
     color: #4caf50;
     text-shadow: 0px 0px 8px rgba(76, 175, 80, 0.6);
 }
+
+.welcome-bg-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: radial-gradient(circle, #1a2a6c 0%, #112b3c 50%, #0c1d55 100%); /* different and attractive bg */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-bg-logo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+.welcome-bg-logo:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.6));
+}
+
+.welcome-bg-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+.welcome-bg-text {
+    font-size: 1.25rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.contacts-bg-white {
+    background-color: #ffffff;
+    margin-top: 100vh;
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    border-top: 4px solid #4caf50;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+}
+
+.contacts-bg-white h2 {
+    color: #1a2a6c;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1.2rem;
+}
+
+.contacts-bg-white p {
+    color: #555;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.contacts-bg-white a {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contacts-bg-white a:hover {
+    text-decoration: underline;
+}
