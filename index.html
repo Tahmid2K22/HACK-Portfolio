@@ -12,12 +12,194 @@
         <span class="club-name">HACK</span>
     </header>
 
-    <!-- Glass Bottom Navbar -->
-    <nav class="glass-nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <div class="welcome-bg-layer">
+        <img src="img/hackLogo.png" alt="HACK Logo Large" class="welcome-bg-logo">
+        <h2 class="welcome-bg-title">Welcome to the Hardware Acceleration Club of KUET!</h2>
+        <p class="welcome-bg-text">
+            Step into the world of Hardware Acceleration Club of KUET.
+            We are innovators and creators pushing the boundaries of embedded systems,
+            robotics, and IoT. Join us in our mission to turn visionary ideas into
+            tangible engineering breakthroughs and accelerate your journey in tech!
+        </p>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="projects-section" id="projects">
+        <h2 class="projects-title">Our Projects</h2>
+        
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="robotics">Robotics</button>
+            <button class="filter-btn" data-filter="iot">IoT</button>
+            <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
+            <button class="filter-btn" data-filter="ai">AI/ML</button>
+            <button class="filter-btn" data-filter="software">Software</button>
+            <button class="filter-btn" data-filter="hardware">Hardware</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <!-- Project Card 1 -->
+            <div class="project-card" data-category="robotics">
+                <div class="project-image-wrapper">
+                    <img src="img/project1.png" alt="Autonomous Robot" class="project-image">
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Autonomous Navigation Robot</h3>
+                    <p class="project-category">Robotics</p>
+                    <p class="project-description">A wheeled robot with obstacle detection and autonomous pathfinding capabilities.</p>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card" data-category="iot">
+                <div class="project-image-wrapper">
+                    <img src="img/project2.png" alt="Smart Home System" class="project-image">
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Smart Home IoT System</h3>
+                    <p class="project-category">IoT</p>
+                    <p class="project-description">Connected home automation system with real-time monitoring and control.</p>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="project-card" data-category="embedded">
+                <div class="project-image-wrapper">
+                    <img src="img/project3.png" alt="Microcontroller Project" class="project-image">
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>STM32 Firmware Development</h3>
+                    <p class="project-category">Embedded Systems</p>
+                    <p class="project-description">Real-time embedded system with sensor integration and data processing.</p>
+                </div>
+            </div>
+
+            <!-- Project Card 4 -->
+            <div class="project-card" data-category="ai">
+                <div class="project-image-wrapper">
+                    <img src="img/project4.png" alt="Vision System" class="project-image">
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Computer Vision System</h3>
+                    <p class="project-category">AI/ML</p>
+                    <p class="project-description">ML-powered object detection and recognition for robotics applications.</p>
+                </div>
+            </div>
+
+            <!-- Project Card 5 -->
+            <div class="project-card" data-category="robotics">
+                <div class="project-image-wrapper">
+                    <img src="img/project5.png" alt="Drone Project" class="project-image">
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Quadcopter Drone</h3>
+                    <p class="project-category">Robotics</p>
+                    <p class="project-description">Custom-built quadcopter with flight control and stabilization systems.</p>
+                </div>
+            </div>
+
+            <!-- Project Card 6 -->
+            <div class="project-card" data-category="iot">
+                <div class="project-image-wrapper">
+                    <img src="img/project6.png" alt="Weather Station" class="project-image">
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Weather Monitoring Station</h3>
+                    <p class="project-category">IoT</p>
+                    <p class="project-description">IoT weather station with cloud data logging and real-time updates.</p>
+                </div>
+            </div>
+            <!-- Project Card 7 -->
+            <div class="project-card" data-category="software">
+                <div class="project-image-wrapper">
+                    <img src="img/project7.png" alt="Portfolio App" class="project-image">
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Club Portfolio App</h3>
+                    <p class="project-category">Software</p>
+                    <p class="project-description">A software portfolio to track club events and members.</p>
+                </div>
+            </div>
+
+            <!-- Project Card 8 -->
+            <div class="project-card" data-category="hardware">
+                <div class="project-image-wrapper">
+                    <img src="img/project8.png" alt="Custom Board" class="project-image">
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Custom ESP32 Board</h3>
+                    <p class="project-category">Hardware</p>
+                    <p class="project-description">A fully custom PCB with ESP32 and power management.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Project Details -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img id="modalImage" src="" alt="Project" class="modal-image">
+            <h2 id="modalTitle"></h2>
+            <p id="modalCategory" class="modal-category"></p>
+            <p id="modalDescription" class="modal-description"></p>
+            <p id="modalDetails" class="modal-details"></p>
+            <div class="modal-buttons">
+                <a id="demoLink" href="#" target="_blank" class="modal-btn demo-btn">View Demo</a>
+                <a id="githubLink" href="#" target="_blank" class="modal-btn github-btn">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The actual scrollable content appearing below the fixed background -->
+    <div class="contacts-bg-white" id="contact">
+        <h2>Contact Us</h2>
+        <p>
+            Have an idea or want to collaborate? Reach out to us!<br>
+            Email: <a href="mailto:hack@kuet.ac.bd">hack@kuet.ac.bd</a><br>
+            Location: Khulna University of Engineering & Technology (KUET)<br>
+            Khulna-9203, Bangladesh
+        </p>
+    </div>
+
+    <div class="container">
+        <nav class="glass-nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">↑</button>
+
+    <script src="scripts/projects.js"></script>
 </body>
 </html>
