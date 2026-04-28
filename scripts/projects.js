@@ -181,19 +181,20 @@ window.addEventListener('click', (event) => {
 // Nav link click
 document.querySelectorAll('.glass-nav a').forEach(link => {
     link.addEventListener('click', (e) => {
-        // Prevent default action
-        e.preventDefault();
-        // Get target ID
-        const targetId = link.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+        const href = link.getAttribute('href');
         
-        // Check element exists
-        if (targetElement) {
-            // Smooth scroll action
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        // Only prevent default if it's a hash on the current page
+        if (href.startsWith('#') || href.includes(window.location.pathname.split('/').pop() + '#')) {
+            const targetId = href.split('#')[1];
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         }
     });
 });

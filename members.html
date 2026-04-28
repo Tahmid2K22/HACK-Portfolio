@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/home.css">
+    <title>Members - Hardware Acceleration Club of KUET</title>
+</head>
+<body>
+    <header class="header-bar">
+        <span class="club-name">HACK</span>
+    </header>
+
+    <section class="about-section" id="members">
+        <div class="section-inner">
+            <p class="section-label">Meet Our Team</p>
+            <h2 class="section-title">The brilliant minds behind HACK.</h2>
+            <p class="section-text">
+                Our club is driven by a passionate community of students dedicated to hardware innovation 
+                and engineering excellence.
+            </p>
+
+            <div class="members-grid">
+                <div class="member-card">
+                    <img src="img/member1.png" alt="Member" class="member-avatar">
+                    <h3 class="member-name">Sarah Rahman</h3>
+                    <p class="member-role">President</p>
+                </div>
+                <div class="member-card">
+                    <img src="img/member2.png" alt="Member" class="member-avatar">
+                    <h3 class="member-name">Tanvir Ahmed</h3>
+                    <p class="member-role">Vice President</p>
+                </div>
+                <div class="member-card">
+                    <img src="img/member3.png" alt="Member" class="member-avatar">
+                    <h3 class="member-name">Afsana Mim</h3>
+                    <p class="member-role">Technical Lead</p>
+                </div>
+                <div class="member-card">
+                    <img src="img/member4.png" alt="Member" class="member-avatar">
+                    <h3 class="member-name">Rakibul Hasan</h3>
+                    <p class="member-role">Embedded Systems Specialist</p>
+                </div>
+                <div class="member-card">
+                    <img src="img/member5.png" alt="Member" class="member-avatar">
+                    <h3 class="member-name">Nusrat Jahan</h3>
+                    <p class="member-role">IoT Developer</p>
+                </div>
+                <div class="member-card">
+                    <img src="img/member6.png" alt="Member" class="member-avatar">
+                    <h3 class="member-name">Sazzad Hossein</h3>
+                    <p class="member-role">Robotics Engineer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="glass-nav">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="members.html">Members</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <button class="back-to-top" id="backToTop" title="Back to Top">↑</button>
+
+    <script>
+        // Back to top functionality
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
