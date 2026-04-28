@@ -12,22 +12,48 @@
         <span class="club-name">HACK</span>
     </header>
 
-    <div class="welcome-bg-layer">
-        <img src="img/hackLogo.png" alt="HACK Logo Large" class="welcome-bg-logo">
-        <h2 class="welcome-bg-title">Welcome to the Hardware Acceleration Club of KUET!</h2>
-        <p class="welcome-bg-text">
-            Step into the world of Hardware Acceleration Club of KUET.
-            We are innovators and creators pushing the boundaries of embedded systems,
-            robotics, and IoT. Join us in our mission to turn visionary ideas into
-            tangible engineering breakthroughs and accelerate your journey in tech!
-        </p>
-    </div>
+    <section class="welcome-bg-layer" id="home">
+        <div class="hero-inner">
+            <img src="img/hackLogo.png" alt="HACK Logo Large" class="welcome-bg-logo">
+            <h2 class="welcome-bg-title">Welcome to the Hardware Acceleration Club of KUET!</h2>
+            <p class="welcome-bg-text">
+                Step into the world of Hardware Acceleration Club of KUET.
+                We are innovators and creators pushing the boundaries of embedded systems,
+                robotics, and IoT. Join us in our mission to turn visionary ideas into
+                tangible engineering breakthroughs and accelerate your journey in tech!
+            </p>
+        </div>
+    </section>
 
-    <!-- Projects Section -->
-    <div class="projects-section" id="projects">
+    <section class="about-section" id="about">
+        <div class="section-inner">
+            <p class="section-label">About the Club</p>
+            <h2 class="section-title">Engineering, research, and hands-on building.</h2>
+            <p class="section-text">
+                HACK brings together students interested in embedded systems, hardware design,
+                robotics, IoT, and practical product development. We build together, learn together,
+                and showcase projects that solve real-world problems.
+            </p>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Embedded Systems</h3>
+                    <p>Microcontrollers, firmware, sensors, and low-level design.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Robotics & IoT</h3>
+                    <p>Autonomous systems, connected devices, and smart automation.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Prototyping</h3>
+                    <p>From idea to demo with PCB design, testing, and iteration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" id="projects">
         <h2 class="projects-title">Our Projects</h2>
-        
-        <!-- Filter Buttons -->
+
         <div class="filter-container">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="robotics">Robotics</button>
@@ -38,9 +64,7 @@
             <button class="filter-btn" data-filter="hardware">Hardware</button>
         </div>
 
-        <!-- Projects Grid -->
         <div class="projects-grid">
-            <!-- Project Card 1 -->
             <div class="project-card" data-category="robotics">
                 <div class="project-image-wrapper">
                     <img src="img/project1.png" alt="Autonomous Robot" class="project-image">
@@ -55,7 +79,6 @@
                 </div>
             </div>
 
-            <!-- Project Card 2 -->
             <div class="project-card" data-category="iot">
                 <div class="project-image-wrapper">
                     <img src="img/project2.png" alt="Smart Home System" class="project-image">
@@ -70,7 +93,6 @@
                 </div>
             </div>
 
-            <!-- Project Card 3 -->
             <div class="project-card" data-category="embedded">
                 <div class="project-image-wrapper">
                     <img src="img/project3.png" alt="Microcontroller Project" class="project-image">
@@ -85,7 +107,6 @@
                 </div>
             </div>
 
-            <!-- Project Card 4 -->
             <div class="project-card" data-category="ai">
                 <div class="project-image-wrapper">
                     <img src="img/project4.png" alt="Vision System" class="project-image">
@@ -100,7 +121,6 @@
                 </div>
             </div>
 
-            <!-- Project Card 5 -->
             <div class="project-card" data-category="robotics">
                 <div class="project-image-wrapper">
                     <img src="img/project5.png" alt="Drone Project" class="project-image">
@@ -115,7 +135,6 @@
                 </div>
             </div>
 
-            <!-- Project Card 6 -->
             <div class="project-card" data-category="iot">
                 <div class="project-image-wrapper">
                     <img src="img/project6.png" alt="Weather Station" class="project-image">
@@ -129,7 +148,7 @@
                     <p class="project-description">IoT weather station with cloud data logging and real-time updates.</p>
                 </div>
             </div>
-            <!-- Project Card 7 -->
+
             <div class="project-card" data-category="software">
                 <div class="project-image-wrapper">
                     <img src="img/project7.png" alt="Portfolio App" class="project-image">
@@ -144,7 +163,6 @@
                 </div>
             </div>
 
-            <!-- Project Card 8 -->
             <div class="project-card" data-category="hardware">
                 <div class="project-image-wrapper">
                     <img src="img/project8.png" alt="Custom Board" class="project-image">
@@ -159,9 +177,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Modal for Project Details -->
     <div class="modal" id="projectModal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -177,8 +194,7 @@
         </div>
     </div>
 
-    <!-- The actual scrollable content appearing below the fixed background -->
-    <div class="contacts-bg-white" id="contact">
+    <section class="contacts-bg-white" id="contact">
         <h2>Contact Us</h2>
         <p>
             Have an idea or want to collaborate? Reach out to us!<br>
@@ -186,19 +202,16 @@
             Location: Khulna University of Engineering & Technology (KUET)<br>
             Khulna-9203, Bangladesh
         </p>
-    </div>
+    </section>
 
-    <div class="container">
-        <nav class="glass-nav">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
-
-    <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" title="Back to Top">↑</button>
+
+    <nav class="glass-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
     <script src="scripts/projects.js"></script>
 </body>
