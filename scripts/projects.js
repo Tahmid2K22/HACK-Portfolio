@@ -21,89 +21,7 @@ backToTopBtn.addEventListener('click', () => {
     });
 });
 
-// Project data
-const projectsData = [
-    {
-        id: 1,
-        title: "Autonomous Navigation Robot",
-        category: "robotics",
-        image: "img/project1.png",
-        description: "A wheeled robot with obstacle detection and autonomous pathfinding capabilities.",
-        details: "Features advanced sensor integration including LiDAR, ultrasonic sensors, and IMU. Implements pathfinding algorithms for efficient navigation in unknown environments.",
-        demoLink: "https://example.com/demo1",
-        githubLink: "https://github.com/hack/autonomous-robot"
-    },
-    {
-        id: 2,
-        title: "Smart Home IoT System",
-        category: "iot",
-        image: "img/project2.png",
-        description: "Connected home automation system with real-time monitoring and control.",
-        details: "Mobile app integration, voice control compatibility, and energy monitoring. Built with Arduino, WiFi modules, and cloud connectivity.",
-        demoLink: "https://example.com/demo2",
-        githubLink: "https://github.com/hack/smart-home-iot"
-    },
-    {
-        id: 3,
-        title: "STM32 Firmware Development",
-        category: "embedded",
-        image: "img/project3.png",
-        description: "Real-time embedded system with sensor integration and data processing.",
-        details: "Low-level programming with real-time OS, interrupt handling, and peripheral control. Includes ADC, PWM, and communication protocols.",
-        demoLink: "https://example.com/demo3",
-        githubLink: "https://github.com/hack/stm32-firmware"
-    },
-    {
-        id: 4,
-        title: "Computer Vision System",
-        category: "ai",
-        image: "img/project4.png",
-        description: "ML-powered object detection and recognition for robotics applications.",
-        details: "Built with TensorFlow and OpenCV. Detects and classifies multiple objects in real-time with 95% accuracy.",
-        demoLink: "https://example.com/demo4",
-        githubLink: "https://github.com/hack/vision-system"
-    },
-    {
-        id: 5,
-        title: "Quadcopter Drone",
-        category: "robotics",
-        image: "img/project5.png",
-        description: "Custom-built quadcopter with flight control and stabilization systems.",
-        details: "Self-stabilizing flight controller with GPS and altitude hold. Custom PCB design with brushless motor control.",
-        demoLink: "https://example.com/demo5",
-        githubLink: "https://github.com/hack/quadcopter"
-    },
-    {
-        id: 6,
-        title: "Weather Monitoring Station",
-        category: "iot",
-        image: "img/project6.png",
-        description: "IoT weather station with cloud data logging and real-time updates.",
-        details: "Measures temperature, humidity, pressure, and wind speed. Data stored in Firebase with live dashboard.",
-        demoLink: "https://example.com/demo6",
-        githubLink: "https://github.com/hack/weather-station"
-    },
-    {
-        id: 7,
-        title: "Club Portfolio App",
-        category: "software",
-        image: "img/project7.png",
-        description: "A software portfolio to track club events and members.",
-        details: "Built with modern web technologies to manage and display all club activities efficiently.",
-        demoLink: "https://example.com/demo7",
-        githubLink: "https://github.com/hack/portfolio-app"
-    },
-    {
-        id: 8,
-        title: "Custom ESP32 Board",
-        category: "hardware",
-        image: "img/project8.png",
-        description: "A fully custom PCB with ESP32 and power management.",
-        details: "Custom PCB design using KiCad, includes battery management, ESP32 microcontroller, and sensor interfaces.",
-        demoLink: "https://example.com/demo8",
-        githubLink: "https://github.com/hack/esp32-board"
-    }
-];
+// Project data moved to scripts/projects-data.js and exposed as window.projectsData
 
 // Get filter buttons
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -140,9 +58,11 @@ const modal = document.getElementById('projectModal');
 const closeBtn = document.querySelector('.close-btn');
 
 // Open modal click
-projectCards.forEach((card, index) => {
+projectCards.forEach((card) => {
     card.addEventListener('click', () => {
-        const project = projectsData[index];
+        const idAttr = card.getAttribute('data-id');
+        const pid = idAttr ? parseInt(idAttr, 10) : null;
+        const project = (window.projectsData || projectsData).find(p => p.id === pid) || (window.projectsData || projectsData)[0];
         // Set modal data
         document.getElementById('modalImage').src = project.image;
         document.getElementById('modalTitle').textContent = project.title;

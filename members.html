@@ -9,7 +9,7 @@
 </head>
 <body>
     <header class="header-bar">
-        <span class="club-name">HACK</span>
+        <a class="club-name" href="index.html">HACK</a>
     </header>
 
     <section class="about-section" id="members">
@@ -24,35 +24,76 @@
             <div class="members-grid">
                 <div class="member-card">
                     <img src="img/member1.png" alt="Member" class="member-avatar">
-                    <h3 class="member-name">Sarah Rahman</h3>
+                    <h3 class="member-name">Amit Kairy</h3>
                     <p class="member-role">President</p>
                 </div>
                 <div class="member-card">
                     <img src="img/member2.png" alt="Member" class="member-avatar">
-                    <h3 class="member-name">Tanvir Ahmed</h3>
-                    <p class="member-role">Vice President</p>
+                    <h3 class="member-name">Faysal Mahmud</h3>
+                    <p class="member-role">VPresident(Technical)</p>
                 </div>
                 <div class="member-card">
                     <img src="img/member3.png" alt="Member" class="member-avatar">
-                    <h3 class="member-name">Afsana Mim</h3>
-                    <p class="member-role">Technical Lead</p>
+                    <h3 class="member-name">Mofazzal Hossen</h3>
+                    <p class="member-role">Vice President</p>
                 </div>
                 <div class="member-card">
                     <img src="img/member4.png" alt="Member" class="member-avatar">
-                    <h3 class="member-name">Rakibul Hasan</h3>
-                    <p class="member-role">Embedded Systems Specialist</p>
+                    <h3 class="member-name">Saleh Sadid Mir</h3>
+                    <p class="member-role">Workshop Manager</p>
                 </div>
                 <div class="member-card">
                     <img src="img/member5.png" alt="Member" class="member-avatar">
-                    <h3 class="member-name">Nusrat Jahan</h3>
-                    <p class="member-role">IoT Developer</p>
+                    <h3 class="member-name">Isaac Aneek Sarkar</h3>
+                    <p class="member-role">Workshop Manager</p>
                 </div>
                 <div class="member-card">
                     <img src="img/member6.png" alt="Member" class="member-avatar">
                     <h3 class="member-name">Sazzad Hossein</h3>
-                    <p class="member-role">Robotics Engineer</p>
+                    <p class="member-role">Associative Member</p>
                 </div>
             </div>
+            
+            <section class="membership-form-section">
+                <h3 class="section-subtitle">Join HACK</h3>
+                <p class="section-subtext">Interested in joining? Fill out this quick form and we'll be in touch.</p>
+                <form class="membership-form" action="#" method="post">
+                    <div class="form-row">
+                        <label for="name">Full name</label>
+                        <input id="name" name="name" type="text" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="dept">Department / Program</label>
+                        <input id="dept" name="department" type="text">
+                    </div>
+                    <div class="form-row">
+                        <label for="year">Year / Level</label>
+                        <input id="year" name="year" type="text">
+                    </div>
+                    <div class="form-row">
+                        <label for="interests">Interests</label>
+                        <select id="interests" name="interests">
+                            <option value="embedded">Embedded Systems</option>
+                            <option value="robotics">Robotics</option>
+                            <option value="iot">IoT</option>
+                            <option value="ml">AI/ML</option>
+                            <option value="hardware">Hardware</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="message">Message (optional)</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <div class="form-row form-actions">
+                        <button type="submit" class="submit-btn">Submit</button>
+                        <button type="reset" class="reset-btn">Reset</button>
+                    </div>
+                </form>
+            </section>
         </div>
     </section>
 
