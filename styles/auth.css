@@ -148,6 +148,12 @@ a {
     line-height: 1.8;
 }
 
+.auth-points-compact {
+    margin-top: 1.2rem;
+    padding-left: 1.05rem;
+    font-size: 0.95rem;
+}
+
 .auth-form h2,
 .profile-head h2,
 .logout-card p {
@@ -201,6 +207,10 @@ a {
     font: inherit;
 }
 
+.input::placeholder {
+    color: rgba(159, 178, 200, 0.65);
+}
+
 .input:focus {
     border-color: rgba(52, 211, 153, 0.6);
     box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.14);
@@ -233,6 +243,13 @@ textarea.input {
     color: #041018;
     background: linear-gradient(135deg, #6ee7b7, #34d399);
     border: 0;
+}
+
+.primary-btn:focus,
+.secondary-btn:focus,
+.auth-links a:focus,
+.input:focus {
+    outline: none;
 }
 
 .secondary-btn {
@@ -311,5 +328,15 @@ textarea.input {
     .form-panel {
         padding: 1.4rem;
         border-radius: 22px;
+    }
+
+    .auth-links a,
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+
+    .button-row {
+        flex-direction: column;
     }
 }

@@ -13,8 +13,8 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
         </main>
     </form>
-    <script src="/scripts/projects-data.js"></script>
-    <script src="/scripts/projects.js"></script>
-    <script src="/scripts/auth.js"></script>
+    <script src="/scripts/projects-data.js?v=2"></script>
+    <script src="/scripts/projects.js?v=2"></script>
+    <script src="/scripts/auth.js?v=2"></script>
 </body>
 </html>

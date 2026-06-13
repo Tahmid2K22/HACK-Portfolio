@@ -7,7 +7,7 @@ namespace HACK_portfolio
 {
     public class DatabaseHelper
     {
-        private static string connectionString = "Server=localhost;Database=hack_portfolio_db;Uid=root;Pwd=;";
+        private static string connectionString = "Server=localhost;Database=HACK_portfolio;Uid=root;Pwd=;";
 
         public static MySqlConnection GetConnection()
         {

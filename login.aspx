@@ -1,4 +1,7 @@
 <%@ Page Title="Login | HACK Portal" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="HACK_portfolio.Login" %>
+<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="/styles/auth.css" />
+</asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="auth-shell auth-shell-login">
         <section class="auth-panel hero-panel login-hero">
@@ -9,6 +12,11 @@
                 <asp:HyperLink runat="server" NavigateUrl="~/register.aspx" Text="Need an account? Register" />
                 <asp:HyperLink runat="server" NavigateUrl="~/profile.aspx" Text="View profile" />
             </div>
+            <ul class="auth-points auth-points-compact">
+                <li>Keep your club profile updated.</li>
+                <li>Jump straight to your member dashboard.</li>
+                <li>Fast access on desktop and mobile.</li>
+            </ul>
         </section>
 
         <section class="auth-panel form-panel">

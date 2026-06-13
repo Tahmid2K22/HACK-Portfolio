@@ -1,25 +1,24 @@
 // Scroll to top
 const backToTopBtn = document.getElementById('backToTop');
 
-// Window scroll event
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        // Show button
-        backToTopBtn.classList.add('show');
-    } else {
-        // Hide button
-        backToTopBtn.classList.remove('show');
-    }
-});
-
-// Click scroll event
-backToTopBtn.addEventListener('click', () => {
-    // Scroll up smooth
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+if (backToTopBtn) {
+    // Window scroll event
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
     });
-});
+
+    // Click scroll event
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
 // Project data moved to scripts/projects-data.js and exposed as window.projectsData
 
@@ -56,47 +55,50 @@ filterBtns.forEach(btn => {
 // Get modal elements
 const modal = document.getElementById('projectModal');
 const closeBtn = document.querySelector('.close-btn');
+const projectData = window.projectsData || [];
 
 // Open modal click
-projectCards.forEach((card) => {
-    card.addEventListener('click', () => {
-        const idAttr = card.getAttribute('data-id');
-        const pid = idAttr ? parseInt(idAttr, 10) : null;
-        const project = (window.projectsData || projectsData).find(p => p.id === pid) || (window.projectsData || projectsData)[0];
-        // Set modal data
-        document.getElementById('modalImage').src = project.image;
-        document.getElementById('modalTitle').textContent = project.title;
-        document.getElementById('modalCategory').textContent = project.category.toUpperCase();
-        document.getElementById('modalDescription').textContent = project.description;
-        document.getElementById('modalDetails').textContent = project.details;
-        document.getElementById('demoLink').href = project.demoLink;
-        document.getElementById('githubLink').href = project.githubLink;
-        
-        // Show modal window
-        modal.style.display = 'block';
-        // Disable body scroll
-        document.body.style.overflow = 'hidden';
+if (modal) {
+    projectCards.forEach((card) => {
+        card.addEventListener('click', () => {
+            const idAttr = card.getAttribute('data-id');
+            const pid = idAttr ? parseInt(idAttr, 10) : null;
+            const project = projectData.find(p => p.id === pid) || projectData[0];
+
+            if (!project) {
+                return;
+            }
+
+            // Set modal data
+            document.getElementById('modalImage').src = project.image;
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalCategory').textContent = project.category.toUpperCase();
+            document.getElementById('modalDescription').textContent = project.description;
+            document.getElementById('modalDetails').textContent = project.details;
+            document.getElementById('demoLink').href = project.demoLink;
+            document.getElementById('githubLink').href = project.githubLink;
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
     });
-});
 
-// Close modal click
-closeBtn.addEventListener('click', () => {
-    // Hide modal window
-    modal.style.display = 'none';
-    // Enable body scroll
-    document.body.style.overflow = 'auto';
-});
-
-// Window click close
-window.addEventListener('click', (event) => {
-    // Check click target
-    if (event.target === modal) {
-        // Hide modal window
-        modal.style.display = 'none';
-        // Enable body scroll
-        document.body.style.overflow = 'auto';
+    if (closeBtn) {
+        // Close modal click
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
     }
-});
+
+    // Window click close
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
 
 // Nav link click
 document.querySelectorAll('.glass-nav a').forEach(link => {

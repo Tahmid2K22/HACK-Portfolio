@@ -1,4 +1,7 @@
 <%@ Page Title="Register | HACK Portal" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="HACK_portfolio.Register" %>
+<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="/styles/auth.css" />
+</asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="auth-shell">
         <section class="auth-panel hero-panel register-hero">
@@ -23,13 +26,13 @@
 
                 <div class="field-grid">
                     <asp:Label runat="server" AssociatedControlID="txtFullName"><span>Full name</span></asp:Label>
-                    <asp:TextBox runat="server" ID="txtFullName" CssClass="input" AutoCompleteType="FullName" />
+                    <asp:TextBox runat="server" ID="txtFullName" CssClass="input" />
 
                     <asp:Label runat="server" AssociatedControlID="txtEmail"><span>Email</span></asp:Label>
                     <asp:TextBox runat="server" ID="txtEmail" CssClass="input" TextMode="Email" AutoCompleteType="Email" />
 
                     <asp:Label runat="server" AssociatedControlID="txtDepartment"><span>Department / Program</span></asp:Label>
-                    <asp:TextBox runat="server" ID="txtDepartment" CssClass="input" AutoCompleteType="Organization" />
+                    <asp:TextBox runat="server" ID="txtDepartment" CssClass="input" />
 
                     <asp:Label runat="server" AssociatedControlID="txtYearLevel"><span>Year / Level</span></asp:Label>
                     <asp:TextBox runat="server" ID="txtYearLevel" CssClass="input" />

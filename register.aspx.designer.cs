@@ -8,5 +8,24 @@ namespace HACK_portfolio
 {
     public partial class Register
     {
+        protected global::System.Web.UI.WebControls.Label registerStatus;
+
+        protected global::System.Web.UI.WebControls.TextBox txtFullName;
+
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+        protected global::System.Web.UI.WebControls.TextBox txtDepartment;
+
+        protected global::System.Web.UI.WebControls.TextBox txtYearLevel;
+
+        protected global::System.Web.UI.WebControls.DropDownList ddlInterest;
+
+        protected global::System.Web.UI.WebControls.TextBox txtBio;
+
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+
+        protected global::System.Web.UI.WebControls.Button btnCreateAccount;
     }
 }
