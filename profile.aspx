@@ -14,36 +14,36 @@
         <section class="auth-panel form-panel profile-panel">
             <div class="profile-head">
                 <asp:Label runat="server" ID="profileStatus" CssClass="status" EnableViewState="false" />
-                <h2 id="profileName">Tahmid Chowdhury</h2>
-                <p id="profileEmail">No account loaded.</p>
+                <h2 id="profileName" runat="server">Tahmid Chowdhury</h2>
+                <p id="profileEmail" runat="server">No account loaded.</p>
             </div>
 
             <div class="profile-grid">
                 <div>
                     <span>Department</span>
-                    <strong id="profileDepartment">-</strong>
+                    <strong id="profileDepartment" runat="server">-</strong>
                 </div>
                 <div>
                     <span>Year / Level</span>
-                    <strong id="profileYearLevel">-</strong>
+                    <strong id="profileYearLevel" runat="server">-</strong>
                 </div>
                 <div>
                     <span>Interest</span>
-                    <strong id="profileInterest">-</strong>
+                    <strong id="profileInterest" runat="server">-</strong>
                 </div>
                 <div>
                     <span>Joined</span>
-                    <strong id="profileCreated">-</strong>
+                    <strong id="profileCreated" runat="server">-</strong>
                 </div>
             </div>
 
             <div class="bio-box">
                 <span>Why you joined</span>
-                <p id="profileBio">-</p>
+                <p id="profileBio" runat="server">-</p>
             </div>
 
             <div class="button-row">
-                <asp:Button runat="server" ID="logoutButton" CssClass="primary-btn" Text="Logout" UseSubmitBehavior="false" />
+                <asp:Button runat="server" ID="logoutButton" CssClass="primary-btn" Text="Logout" UseSubmitBehavior="false" OnClick="logoutButton_Click" />
                 <asp:HyperLink runat="server" CssClass="secondary-btn" NavigateUrl="~/login.aspx" Text="Go to login" />
             </div>
         </section>

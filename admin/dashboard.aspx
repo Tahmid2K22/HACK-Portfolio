@@ -1,0 +1,159 @@
+<%@ Page Title="Admin Dashboard - HACK Portfolio" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="HACK_portfolio.admin.dashboard" %>
+<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="/styles/admin.css" />
+</asp:Content>
+<asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <asp:Image runat="server" ImageUrl="~/img/hackLogo.png" AlternateText="HACK Logo" />
+                <h2>Admin Panel</h2>
+            </div>
+            <nav class="admin-nav">
+                <asp:HyperLink runat="server" NavigateUrl="~/admin/dashboard.aspx" CssClass="admin-nav-link active">
+                    <span>📊</span> Dashboard
+                </asp:HyperLink>
+                <asp:HyperLink runat="server" NavigateUrl="~/admin/manage-projects.aspx" CssClass="admin-nav-link">
+                    <span>🚀</span> Manage Projects
+                </asp:HyperLink>
+                <asp:HyperLink runat="server" NavigateUrl="~/admin/manage-users.aspx" CssClass="admin-nav-link">
+                    <span>👥</span> Manage Users
+                </asp:HyperLink>
+                <asp:HyperLink runat="server" NavigateUrl="~/admin/settings.aspx" CssClass="admin-nav-link">
+                    <span>⚙️</span> Settings
+                </asp:HyperLink>
+                <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx" CssClass="admin-nav-link">
+                    <span>🏠</span> Back to Site
+                </asp:HyperLink>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Dashboard</h1>
+                <div class="admin-user-info">
+                    <span>Welcome, <strong><asp:Label runat="server" ID="lblAdminName" Text="Admin"></asp:Label></strong></span>
+                    <asp:HyperLink runat="server" NavigateUrl="~/login.aspx" CssClass="logout-btn">Logout</asp:HyperLink>
+                </div>
+            </header>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">🚀</div>
+                    <div class="stat-info">
+                        <h3><asp:Label runat="server" ID="lblTotalProjects" Text="24"></asp:Label></h3>
+                        <p>Total Projects</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <h3><asp:Label runat="server" ID="lblTotalUsers" Text="156"></asp:Label></h3>
+                        <p>Total Members</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <h3><asp:Label runat="server" ID="lblActiveProjects" Text="12"></asp:Label></h3>
+                        <p>Active Projects</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-info">
+                        <h3><asp:Label runat="server" ID="lblPendingRequests" Text="8"></asp:Label></h3>
+                        <p>Pending Requests</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <section class="dashboard-section">
+                    <h2>Recent Projects</h2>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Category</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Autonomous Robot</td>
+                                    <td>Robotics</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>2026-06-01</td>
+                                    <td>
+                                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
+                                        <asp:LinkButton runat="server" CssClass="action-btn delete-btn">Delete</asp:LinkButton>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Smart Home IoT</td>
+                                    <td>IoT</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>2026-05-28</td>
+                                    <td>
+                                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
+                                        <asp:LinkButton runat="server" CssClass="action-btn delete-btn">Delete</asp:LinkButton>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Computer Vision</td>
+                                    <td>AI/ML</td>
+                                    <td><span class="badge badge-warning">Pending</span></td>
+                                    <td>2026-05-20</td>
+                                    <td>
+                                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
+                                        <asp:LinkButton runat="server" CssClass="action-btn delete-btn">Delete</asp:LinkButton>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="dashboard-section">
+                    <h2>Recent Members</h2>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>john@example.com</td>
+                                    <td><span class="badge badge-info">Member</span></td>
+                                    <td>
+                                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
+                                        <asp:LinkButton runat="server" CssClass="action-btn delete-btn">Delete</asp:LinkButton>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>jane@example.com</td>
+                                    <td><span class="badge badge-info">Member</span></td>
+                                    <td>
+                                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
+                                        <asp:LinkButton runat="server" CssClass="action-btn delete-btn">Delete</asp:LinkButton>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</asp:Content>

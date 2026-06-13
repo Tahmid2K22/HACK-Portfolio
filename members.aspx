@@ -5,41 +5,22 @@
             <p class="section-label">Meet Our Team</p>
             <h2 class="section-title">The brilliant minds behind HACK.</h2>
             <p class="section-text">
-                Our club is driven by a passionate community of students dedicated to hardware innovation 
+                Our club is driven by a passionate community of students dedicated to hardware innovation
                 and engineering excellence.
             </p>
 
             <div class="members-grid">
-                <div class="member-card">
-                    <asp:Image runat="server" ImageUrl="~/img/member1.png" AlternateText="Member" CssClass="member-avatar" />
-                    <h3 class="member-name">Amit Kairy</h3>
-                    <p class="member-role">President</p>
-                </div>
-                <div class="member-card">
-                    <asp:Image runat="server" ImageUrl="~/img/member2.png" AlternateText="Member" CssClass="member-avatar" />
-                    <h3 class="member-name">Faysal Mahmud</h3>
-                    <p class="member-role">VPresident(Technical)</p>
-                </div>
-                <div class="member-card">
-                    <asp:Image runat="server" ImageUrl="~/img/member3.png" AlternateText="Member" CssClass="member-avatar" />
-                    <h3 class="member-name">Mofazzal Hossen</h3>
-                    <p class="member-role">Vice President</p>
-                </div>
-                <div class="member-card">
-                    <asp:Image runat="server" ImageUrl="~/img/member4.png" AlternateText="Member" CssClass="member-avatar" />
-                    <h3 class="member-name">Saleh Sadid Mir</h3>
-                    <p class="member-role">Workshop Manager</p>
-                </div>
-                <div class="member-card">
-                    <asp:Image runat="server" ImageUrl="~/img/member5.png" AlternateText="Member" CssClass="member-avatar" />
-                    <h3 class="member-name">Isaac Aneek Sarkar</h3>
-                    <p class="member-role">Workshop Manager</p>
-                </div>
-                <div class="member-card">
-                    <asp:Image runat="server" ImageUrl="~/img/member6.png" AlternateText="Member" CssClass="member-avatar" />
-                    <h3 class="member-name">Sazzad Hossein</h3>
-                    <p class="member-role">Associative Member</p>
-                </div>
+                <asp:Repeater runat="server" ID="MembersRepeater">
+                    <ItemTemplate>
+                        <div class="member-card">
+                            <asp:Image runat="server" ImageUrl='<%# Eval("ProfileImageUrl") != DBNull.Value && !string.IsNullOrEmpty(Eval("ProfileImageUrl").ToString()) ? Eval("ProfileImageUrl") : "~/img/member1.png" %>' AlternateText='<%# Eval("FirstName") + " " + Eval("LastName") %>' CssClass="member-avatar" />
+                            <h3 class="member-name"><%# Eval("FirstName") %> <%# Eval("LastName") %></h3>
+                            <p class="member-role"><%# Eval("Department") %></p>
+                            <%# !string.IsNullOrEmpty(Eval("Bio").ToString()) ? "<p class='member-bio'>" + Eval("Bio") + "</p>" : "" %>
+                            <%# !string.IsNullOrEmpty(Eval("Skills").ToString()) ? "<p class='member-skills'><strong>Skills:</strong> " + Eval("Skills") + "</p>" : "" %>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
 
             <section class="membership-form-section">

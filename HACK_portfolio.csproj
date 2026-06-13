@@ -36,6 +36,9 @@
 	<WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+	<Reference Include="MySql.Data, Version=8.0.33.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+	  <HintPath>packages\MySql.Data.8.0.33\lib\net462\MySql.Data.dll</HintPath>
+	</Reference>
 	<Reference Include="System" />
 	<Reference Include="System.Core" />
 	<Reference Include="System.Data" />
@@ -138,6 +141,17 @@
 	  <SubType>Code</SubType>
 	</Compile>
 	<Content Include="project.aspx" />
+	<Content Include="logout.aspx" />
+	<Compile Include="logout.aspx.cs">
+	  <DependentUpon>logout.aspx</DependentUpon>
+	  <SubType>Code</SubType>
+	</Compile>
+	<Compile Include="logout.aspx.designer.cs">
+	  <DependentUpon>logout.aspx</DependentUpon>
+	  <AutoGen>True</AutoGen>
+	  <DesignTime>True</DesignTime>
+	  <SubType>Code</SubType>
+	</Compile>
 	<Compile Include="project.aspx.cs">
 	  <DependentUpon>project.aspx</DependentUpon>
 	  <SubType>Code</SubType>
@@ -148,10 +162,56 @@
 	  <DesignTime>True</DesignTime>
 	  <SubType>Code</SubType>
 	</Compile>
+	<Compile Include="App_Code\DatabaseHelper.cs" />
+	<Content Include="admin\dashboard.aspx" />
+	<Compile Include="admin\dashboard.aspx.cs">
+	  <DependentUpon>dashboard.aspx</DependentUpon>
+	  <SubType>Code</SubType>
+	</Compile>
+	<Compile Include="admin\dashboard.aspx.designer.cs">
+	  <DependentUpon>dashboard.aspx</DependentUpon>
+	  <AutoGen>True</AutoGen>
+	  <DesignTime>True</DesignTime>
+	  <SubType>Code</SubType>
+	</Compile>
+	<Content Include="admin\manage-projects.aspx" />
+	<Compile Include="admin\manage-projects.aspx.cs">
+	  <DependentUpon>manage-projects.aspx</DependentUpon>
+	  <SubType>Code</SubType>
+	</Compile>
+	<Compile Include="admin\manage-projects.aspx.designer.cs">
+	  <DependentUpon>manage-projects.aspx</DependentUpon>
+	  <AutoGen>True</AutoGen>
+	  <DesignTime>True</DesignTime>
+	  <SubType>Code</SubType>
+	</Compile>
+	<Content Include="admin\manage-users.aspx" />
+	<Compile Include="admin\manage-users.aspx.cs">
+	  <DependentUpon>manage-users.aspx</DependentUpon>
+	  <SubType>Code</SubType>
+	</Compile>
+	<Compile Include="admin\manage-users.aspx.designer.cs">
+	  <DependentUpon>manage-users.aspx</DependentUpon>
+	  <AutoGen>True</AutoGen>
+	  <DesignTime>True</DesignTime>
+	  <SubType>Code</SubType>
+	</Compile>
+	<Content Include="admin\settings.aspx" />
+	<Compile Include="admin\settings.aspx.cs">
+	  <DependentUpon>settings.aspx</DependentUpon>
+	  <SubType>Code</SubType>
+	</Compile>
+	<Compile Include="admin\settings.aspx.designer.cs">
+	  <DependentUpon>settings.aspx</DependentUpon>
+	  <AutoGen>True</AutoGen>
+	  <DesignTime>True</DesignTime>
+	  <SubType>Code</SubType>
+	</Compile>
 	<Content Include="scripts\auth.js" />
 	<Content Include="scripts\projects.js" />
 	<Content Include="scripts\projects-data.js" />
 	<Content Include="styles\auth.css" />
+	<Content Include="styles\admin.css" />
 	<Content Include="styles\home.css" />
 	<Content Include="App_Data\users.json" />
 	<Content Include="img\hackLogo.png" />

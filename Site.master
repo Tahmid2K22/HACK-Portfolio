@@ -9,18 +9,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <header class="site-header">
-            <asp:Image runat="server" ImageUrl="~/img/hackLogo.png" AlternateText="HACK Portfolio logo" />
-            <nav>
-                <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx" Text="Home" />
-                <asp:HyperLink runat="server" NavigateUrl="~/all-projects.aspx" Text="All Projects" />
-                <asp:HyperLink runat="server" NavigateUrl="~/project.aspx" Text="Project" />
-                <asp:HyperLink runat="server" NavigateUrl="~/members.aspx" Text="Members" />
-                <asp:HyperLink runat="server" NavigateUrl="~/profile.aspx" Text="Profile" />
-                <asp:HyperLink runat="server" NavigateUrl="~/login.aspx" Text="Login" />
-                <asp:HyperLink runat="server" NavigateUrl="~/register.aspx" Text="Register" />
-            </nav>
-        </header>
         <main class="site-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
         </main>
