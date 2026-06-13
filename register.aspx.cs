@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace HACK_portfolio
@@ -81,7 +82,7 @@ namespace HACK_portfolio
                 string insertQuery = @"INSERT INTO Users (Username, Email, PasswordHash, FirstName, LastName,
                     Department, YearOfStudy, Bio, Skills, Role, IsActive, IsEmailVerified)
                     VALUES (@Username, @Email, @Password, @FirstName, @LastName,
-                    @Department, @YearOfStudy, @Bio, @Skills, 'Member', 1, 0)";
+                    @Department, @YearOfStudy, @Bio, @Skills, 'Member', 1, 1)";
 
                 MySqlParameter[] parameters = {
                     new MySqlParameter("@Username", username),
@@ -89,9 +90,9 @@ namespace HACK_portfolio
                     new MySqlParameter("@Password", hashedPassword),
                     new MySqlParameter("@FirstName", firstName),
                     new MySqlParameter("@LastName", lastName),
-                    new MySqlParameter("@Department", department),
+                    new MySqlParameter("@Department", string.IsNullOrEmpty(department) ? "" : department),
                     new MySqlParameter("@YearOfStudy", string.IsNullOrEmpty(yearLevel) ? (object)DBNull.Value : yearLevel),
-                    new MySqlParameter("@Bio", bio),
+                    new MySqlParameter("@Bio", string.IsNullOrEmpty(bio) ? "" : bio),
                     new MySqlParameter("@Skills", interest)
                 };
 
@@ -99,9 +100,32 @@ namespace HACK_portfolio
 
                 if (result > 0)
                 {
-                    registerStatus.Text = "Registration successful! Redirecting to login...";
-                    registerStatus.CssClass = "status success";
-                    Response.AddHeader("REFRESH", "2;URL=login.aspx");
+                    // Get the newly created user ID and log them in automatically
+                    string getUserQuery = "SELECT UserID, Username, FirstName, LastName, Role FROM Users WHERE Email = @Email";
+                    MySqlParameter[] getUserParams = { new MySqlParameter("@Email", email) };
+                    DataTable dtUser = DatabaseHelper.ExecuteQuery(getUserQuery, getUserParams);
+
+                    if (dtUser.Rows.Count > 0)
+                    {
+                        DataRow row = dtUser.Rows[0];
+                        // Set session variables
+                        Session["UserID"] = row["UserID"];
+                        Session["Username"] = row["Username"];
+                        Session["FirstName"] = row["FirstName"];
+                        Session["LastName"] = row["LastName"];
+                        Session["Role"] = row["Role"];
+                        Session["IsAdmin"] = row["Role"].ToString() == "Admin";
+
+                        registerStatus.Text = "Registration successful! Logging you in...";
+                        registerStatus.CssClass = "status success";
+                        Response.AddHeader("REFRESH", "2;URL=profile.aspx");
+                    }
+                    else
+                    {
+                        registerStatus.Text = "Registration successful! Redirecting to login...";
+                        registerStatus.CssClass = "status success";
+                        Response.AddHeader("REFRESH", "2;URL=login.aspx");
+                    }
                 }
                 else
                 {

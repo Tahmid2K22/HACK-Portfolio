@@ -59,13 +59,13 @@
                 <ItemTemplate>
                     <div class="project-card" data-category='<%# Eval("CategoryName").ToString().ToLower() %>' data-id='<%# Eval("ProjectID") %>'>
                         <div class="project-image-wrapper">
-                            <asp:Image runat="server" ImageUrl='<%# Eval("ImageUrl") != DBNull.Value ? Eval("ImageUrl") : "~/img/project1.png" %>' AlternateText='<%# Eval("Title") %>' CssClass="project-image" />
+                            <asp:Image runat="server" ImageUrl='<%# Eval("ThumbnailImageUrl") %>' AlternateText='<%# Eval("ProjectName") %>' CssClass="project-image" />
                             <div class="project-overlay">
                                 <asp:HyperLink runat="server" NavigateUrl='<%# "~/project.aspx?id=" + Eval("ProjectID") %>' CssClass="view-details-btn" Text="View Details" />
                             </div>
                         </div>
                         <div class="project-info">
-                            <h3><%# Eval("Title") %></h3>
+                            <h3><%# Eval("ProjectName") %></h3>
                             <p class="project-category"><%# Eval("CategoryName") %></p>
                             <p class="project-description"><%# Eval("ShortDescription") %></p>
                         </div>

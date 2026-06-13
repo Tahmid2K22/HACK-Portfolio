@@ -25,35 +25,52 @@
                 <asp:Label runat="server" ID="registerStatus" CssClass="status" EnableViewState="false" />
 
                 <div class="field-grid">
-                    <asp:Label runat="server" AssociatedControlID="txtFullName"><span>Full name</span></asp:Label>
-                    <asp:TextBox runat="server" ID="txtFullName" CssClass="input" />
+                    <div class="form-field full-width">
+                        <asp:Label runat="server" AssociatedControlID="txtFullName"><span>Full name *</span></asp:Label>
+                        <asp:TextBox runat="server" ID="txtFullName" CssClass="input" placeholder="Enter your full name" required="required" />
+                    </div>
 
-                    <asp:Label runat="server" AssociatedControlID="txtEmail"><span>Email</span></asp:Label>
-                    <asp:TextBox runat="server" ID="txtEmail" CssClass="input" TextMode="Email" AutoCompleteType="Email" />
+                    <div class="form-field full-width">
+                        <asp:Label runat="server" AssociatedControlID="txtEmail"><span>Email *</span></asp:Label>
+                        <asp:TextBox runat="server" ID="txtEmail" CssClass="input" TextMode="Email" placeholder="your.email@example.com" required="required" />
+                    </div>
 
-                    <asp:Label runat="server" AssociatedControlID="txtDepartment"><span>Department / Program</span></asp:Label>
-                    <asp:TextBox runat="server" ID="txtDepartment" CssClass="input" />
+                    <div class="form-field">
+                        <asp:Label runat="server" AssociatedControlID="txtDepartment"><span>Department / Program</span></asp:Label>
+                        <asp:TextBox runat="server" ID="txtDepartment" CssClass="input" placeholder="e.g., CSE, EEE, ME" />
+                    </div>
 
-                    <asp:Label runat="server" AssociatedControlID="txtYearLevel"><span>Year / Level</span></asp:Label>
-                    <asp:TextBox runat="server" ID="txtYearLevel" CssClass="input" />
+                    <div class="form-field">
+                        <asp:Label runat="server" AssociatedControlID="txtYearLevel"><span>Year / Level</span></asp:Label>
+                        <asp:TextBox runat="server" ID="txtYearLevel" CssClass="input" placeholder="e.g., 1, 2, 3, 4" />
+                    </div>
 
-                    <asp:Label runat="server" AssociatedControlID="ddlInterest"><span>Primary interest</span></asp:Label>
-                    <asp:DropDownList runat="server" ID="ddlInterest" CssClass="input">
-                        <asp:ListItem Text="Embedded Systems" />
-                        <asp:ListItem Text="Robotics" />
-                        <asp:ListItem Text="IoT" />
-                        <asp:ListItem Text="AI / ML" />
-                        <asp:ListItem Text="Hardware Design" />
-                    </asp:DropDownList>
+                    <div class="form-field full-width">
+                        <asp:Label runat="server" AssociatedControlID="ddlInterest"><span>Primary interest</span></asp:Label>
+                        <asp:DropDownList runat="server" ID="ddlInterest" CssClass="input">
+                            <asp:ListItem Text="Select your interest" Value="" />
+                            <asp:ListItem Text="Embedded Systems" />
+                            <asp:ListItem Text="Robotics" />
+                            <asp:ListItem Text="IoT" />
+                            <asp:ListItem Text="AI / ML" />
+                            <asp:ListItem Text="Hardware Design" />
+                        </asp:DropDownList>
+                    </div>
 
-                    <asp:Label runat="server" AssociatedControlID="txtBio" CssClass="full-width"><span>Why do you want to join?</span></asp:Label>
-                    <asp:TextBox runat="server" ID="txtBio" CssClass="input" TextMode="MultiLine" Rows="4" />
+                    <div class="form-field full-width">
+                        <asp:Label runat="server" AssociatedControlID="txtBio"><span>Why do you want to join? (Optional)</span></asp:Label>
+                        <asp:TextBox runat="server" ID="txtBio" CssClass="input" TextMode="MultiLine" Rows="3" placeholder="Tell us about your interest in HACK..." />
+                    </div>
 
-                    <asp:Label runat="server" AssociatedControlID="txtPassword"><span>Password</span></asp:Label>
-                    <asp:TextBox runat="server" ID="txtPassword" CssClass="input" TextMode="Password" AutoCompleteType="None" />
+                    <div class="form-field">
+                        <asp:Label runat="server" AssociatedControlID="txtPassword"><span>Password *</span></asp:Label>
+                        <asp:TextBox runat="server" ID="txtPassword" CssClass="input" TextMode="Password" placeholder="Minimum 6 characters" required="required" />
+                    </div>
 
-                    <asp:Label runat="server" AssociatedControlID="txtConfirmPassword"><span>Confirm password</span></asp:Label>
-                    <asp:TextBox runat="server" ID="txtConfirmPassword" CssClass="input" TextMode="Password" AutoCompleteType="None" />
+                    <div class="form-field">
+                        <asp:Label runat="server" AssociatedControlID="txtConfirmPassword"><span>Confirm password *</span></asp:Label>
+                        <asp:TextBox runat="server" ID="txtConfirmPassword" CssClass="input" TextMode="Password" placeholder="Re-enter password" required="required" />
+                    </div>
                 </div>
 
                 <div class="button-row">

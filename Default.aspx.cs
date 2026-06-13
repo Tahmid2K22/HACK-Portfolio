@@ -18,7 +18,20 @@ namespace HACK_portfolio
         {
             try
             {
-                string query = "SELECT p.*, c.CategoryName FROM Projects p INNER JOIN Categories c ON p.CategoryID = c.CategoryID WHERE p.IsPublished = 1 ORDER BY p.IsFeatured DESC, p.CreatedDate DESC";
+                string query = @"SELECT 
+                                    p.ProjectID, 
+                                    p.ProjectName AS Title, 
+                                    p.ShortDescription, 
+                                    p.ThumbnailImageUrl AS ImageUrl, 
+                                    p.IsFeatured, 
+                                    p.IsPublished, 
+                                    p.CreatedDate, 
+                                    c.CategoryName 
+                                 FROM Projects p 
+                                 INNER JOIN Categories c ON p.CategoryID = c.CategoryID 
+                                 WHERE p.IsPublished = 1 
+                                 ORDER BY p.IsFeatured DESC, p.CreatedDate DESC";
+
                 DataTable dt = DatabaseHelper.ExecuteQuery(query);
                 ProjectsRepeater.DataSource = dt;
                 ProjectsRepeater.DataBind();

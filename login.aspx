@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="button-row">
-                    <asp:Button runat="server" ID="btnSignIn" CssClass="primary-btn" Text="Sign in" />
+                    <asp:Button runat="server" ID="btnSignIn" CssClass="primary-btn" Text="Sign in" OnClick="btnSignIn_Click" />
                     <asp:HyperLink runat="server" CssClass="secondary-btn" NavigateUrl="~/register.aspx" Text="Register" />
                 </div>
             </asp:Panel>

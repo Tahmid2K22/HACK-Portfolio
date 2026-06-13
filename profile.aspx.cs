@@ -37,14 +37,43 @@ namespace HACK_portfolio
                 if (dt.Rows.Count > 0)
                 {
                     DataRow user = dt.Rows[0];
-                    profileName.InnerText = user["FirstName"].ToString() + " " + user["LastName"].ToString();
-                    profileEmail.InnerText = user["Email"].ToString();
-                    profileDepartment.InnerText = user["Department"].ToString();
-                    profileYearLevel.InnerText = user["YearLevel"] != DBNull.Value ? user["YearLevel"].ToString() : "-";
-                    profileInterest.InnerText = user["Interests"] != DBNull.Value ? user["Interests"].ToString() : "-";
-                    profileCreated.InnerText = user["JoinDate"] != DBNull.Value ? Convert.ToDateTime(user["JoinDate"]).ToString("MMM dd, yyyy") : "-";
-                    profileBio.InnerText = user["Bio"] != DBNull.Value ? user["Bio"].ToString() : "-";
-                    profileStatus.Text = "Active Member";
+
+                    // Get user data
+                    string firstName = user["FirstName"].ToString();
+                    string lastName = user["LastName"].ToString();
+                    string fullName = firstName + " " + lastName;
+                    string email = user["Email"].ToString();
+                    string role = user["Role"].ToString();
+
+                    // Profile header
+                    profileName.InnerText = fullName;
+                    profileEmail.InnerText = email;
+
+                    // Avatar initials
+                    string initials = "";
+                    if (!string.IsNullOrEmpty(firstName)) initials += firstName[0];
+                    if (!string.IsNullOrEmpty(lastName)) initials += lastName[0];
+                    avatarInitials.InnerText = initials.ToUpper();
+
+                    // Role badge
+                    profileRoleBadge.InnerText = role;
+                    if (role == "Admin")
+                    {
+                        profileRoleBadge.Attributes["class"] = "role-badge role-admin";
+                        adminLink.Visible = true;
+                    }
+
+                    // Profile details
+                    profileDepartment.InnerText = user["Department"] != DBNull.Value && !string.IsNullOrEmpty(user["Department"].ToString())
+                        ? user["Department"].ToString() : "Not specified";
+                    profileYearLevel.InnerText = user["YearOfStudy"] != DBNull.Value && user["YearOfStudy"].ToString() != ""
+                        ? user["YearOfStudy"].ToString() : "Not specified";
+                    profileInterest.InnerText = user["Skills"] != DBNull.Value && !string.IsNullOrEmpty(user["Skills"].ToString())
+                        ? user["Skills"].ToString() : "Not specified";
+                    profileCreated.InnerText = user["JoinDate"] != DBNull.Value
+                        ? Convert.ToDateTime(user["JoinDate"]).ToString("MMMM dd, yyyy") : "Unknown";
+                    profileBio.InnerText = user["Bio"] != DBNull.Value && !string.IsNullOrEmpty(user["Bio"].ToString())
+                        ? user["Bio"].ToString() : "No bio provided yet.";
                 }
             }
             catch (Exception ex)

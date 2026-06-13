@@ -16,15 +16,14 @@ namespace HACK_portfolio
                     Response.Redirect("~/profile.aspx");
                 }
             }
-
-            btnSignIn.Click += BtnSignIn_Click;
         }
 
-        private void BtnSignIn_Click(object sender, EventArgs e)
+        protected void btnSignIn_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text.Trim();
 
+            // Validation
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 loginStatus.Text = "Please enter both email and password.";
@@ -34,8 +33,13 @@ namespace HACK_portfolio
 
             try
             {
+                // Hash the password for comparison
                 string hashedPassword = DatabaseHelper.HashPassword(password);
-                string query = "SELECT UserID, Username, FirstName, LastName, Role, IsActive FROM Users WHERE Email = @Email AND PasswordHash = @Password";
+
+                // Query to check credentials
+                string query = @"SELECT UserID, Username, FirstName, LastName, Email, Role, IsActive, IsEmailVerified
+                                 FROM Users
+                                 WHERE Email = @Email AND PasswordHash = @Password";
 
                 MySqlParameter[] parameters = {
                     new MySqlParameter("@Email", email),
@@ -46,47 +50,52 @@ namespace HACK_portfolio
 
                 if (dt.Rows.Count > 0)
                 {
-                    DataRow row = dt.Rows[0];
-                    bool isActive = Convert.ToBoolean(row["IsActive"]);
+                    DataRow user = dt.Rows[0];
 
+                    // Check if account is active
+                    bool isActive = Convert.ToBoolean(user["IsActive"]);
                     if (!isActive)
                     {
-                        loginStatus.Text = "Your account is inactive. Please contact admin.";
+                        loginStatus.Text = "Your account has been deactivated. Please contact an administrator.";
                         loginStatus.CssClass = "status error";
                         return;
                     }
 
-                    // Store user info in session
-                    Session["UserID"] = row["UserID"];
-                    Session["Username"] = row["Username"];
-                    Session["FirstName"] = row["FirstName"];
-                    Session["LastName"] = row["LastName"];
-                    Session["Role"] = row["Role"];
-                    Session["IsAdmin"] = row["Role"].ToString() == "Admin";
-
-                    // Update last login date
-                    string updateQuery = "UPDATE Users SET LastLoginDate = NOW() WHERE UserID = @UserID";
-                    MySqlParameter[] updateParams = { new MySqlParameter("@UserID", row["UserID"]) };
-                    DatabaseHelper.ExecuteNonQuery(updateQuery, updateParams);
-
-                    // Redirect based on role
-                    if (row["Role"].ToString() == "Admin")
+                    // Check if email is verified (optional - can skip if not using email verification)
+                    bool isEmailVerified = Convert.ToBoolean(user["IsEmailVerified"]);
+                    if (!isEmailVerified)
                     {
-                        Response.Redirect("~/admin/dashboard.aspx");
+                        loginStatus.Text = "Please verify your email address before logging in.";
+                        loginStatus.CssClass = "status error";
+                        return;
                     }
-                    else
-                    {
-                        Response.Redirect("~/profile.aspx");
-                    }
+
+                    // Set session variables
+                    Session["UserID"] = user["UserID"];
+                    Session["Username"] = user["Username"];
+                    Session["FirstName"] = user["FirstName"];
+                    Session["LastName"] = user["LastName"];
+                    Session["Email"] = user["Email"];
+                    Session["Role"] = user["Role"];
+                    Session["IsAdmin"] = user["Role"].ToString() == "Admin";
+
+                    // Success message
+                    loginStatus.Text = "Login successful! Redirecting...";
+                    loginStatus.CssClass = "status success";
+
+                    // Redirect to profile page
+                    Response.AddHeader("REFRESH", "1;URL=profile.aspx");
                 }
                 else
                 {
-                    loginStatus.Text = "Invalid email or password.";
+                    // Invalid credentials
+                    loginStatus.Text = "Invalid email or password. Please try again.";
                     loginStatus.CssClass = "status error";
                 }
             }
             catch (Exception ex)
             {
+                // Handle errors
                 loginStatus.Text = "Login error: " + ex.Message;
                 loginStatus.CssClass = "status error";
             }
