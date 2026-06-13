@@ -9,9 +9,9 @@
             <h1>Your Profile</h1>
             <p>View and manage your club membership information.</p>
             <div class="auth-links">
-                <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx" Text="🏠 Back to Home" CssClass="home-link" />
-                <asp:HyperLink runat="server" NavigateUrl="~/members.aspx" Text="👥 View Members" />
-                <asp:HyperLink runat="server" NavigateUrl="~/all-projects.aspx" Text="🚀 All Projects" />
+                <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx" Text="Back to Home" CssClass="home-link" />
+                <asp:HyperLink runat="server" NavigateUrl="~/members.aspx" Text="View Members" />
+                <asp:HyperLink runat="server" NavigateUrl="~/all-projects.aspx" Text="All Projects" />
             </div>
             <ul class="auth-points auth-points-compact">
                 <li>View your membership details</li>
@@ -25,7 +25,8 @@
                 <asp:Label runat="server" ID="profileStatus" CssClass="status" EnableViewState="false" />
                 <div class="profile-avatar">
                     <div class="avatar-circle">
-                        <span id="avatarInitials" runat="server">?</span>
+                        <asp:Image runat="server" ID="profileImage" CssClass="avatar-img" AlternateText="Avatar" Visible="false" />
+                        <span id="avatarInitials" runat="server"></span>
                     </div>
                 </div>
                 <h2 id="profileName" runat="server">Loading...</h2>
@@ -36,7 +37,7 @@
             <div class="profile-divider"></div>
 
             <div class="profile-section">
-                <h3>📋 Basic Information</h3>
+                <h3>Basic Information</h3>
                 <div class="profile-grid">
                     <div class="profile-item">
                         <span>Department</span>
@@ -60,15 +61,15 @@
             <div class="profile-divider"></div>
 
             <div class="bio-box">
-                <h3>💭 About Me</h3>
+                <h3>About Me</h3>
                 <p id="profileBio" runat="server" class="bio-text">No bio provided.</p>
             </div>
 
             <div class="profile-divider"></div>
 
             <div class="button-row profile-actions">
-                <asp:HyperLink runat="server" CssClass="secondary-btn" NavigateUrl="~/Default.aspx" Text="🏠 Home" />
-                <asp:HyperLink runat="server" CssClass="secondary-btn admin-btn" NavigateUrl="~/admin/dashboard.aspx" Text="⚙️ Admin Panel" ID="adminLink" Visible="false" />
+                <asp:HyperLink runat="server" CssClass="secondary-btn" NavigateUrl="~/Default.aspx" Text="Home" />
+                <asp:HyperLink runat="server" CssClass="secondary-btn admin-btn" NavigateUrl="~/admin/dashboard.aspx" Text="Admin Panel" ID="adminLink" Visible="false" />
                 <asp:Button runat="server" ID="logoutButton" CssClass="danger-btn" Text="Logout" UseSubmitBehavior="false" OnClick="logoutButton_Click" />
             </div>
         </section>
