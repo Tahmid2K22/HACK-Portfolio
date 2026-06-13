@@ -146,11 +146,5 @@
         </div>
     </div>
 
-    <nav class="glass-nav">
-        <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#home" Text="Home" />
-        <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#about" Text="About" />
-        <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#projects" Text="Projects" />
-        <asp:HyperLink runat="server" NavigateUrl="~/members.aspx" Text="Members" />
-        <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#contact" Text="Contact" />
-    </nav>
+
 </asp:Content>

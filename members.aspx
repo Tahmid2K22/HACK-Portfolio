@@ -70,16 +70,7 @@
         </div>
     </section>
 
-    <nav class="glass-nav">
-        <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#home" Text="Home" />
-        <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#about" Text="About" />
-        <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#projects" Text="Projects" />
-        <asp:HyperLink runat="server" NavigateUrl="~/members.aspx" Text="Members" />
-        <asp:HyperLink runat="server" NavigateUrl="~/register.aspx" Text="Register" />
-        <asp:HyperLink runat="server" NavigateUrl="~/login.aspx" Text="Login" />
-        <asp:HyperLink runat="server" NavigateUrl="~/profile.aspx" Text="Profile" />
-        <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#contact" Text="Contact" />
-    </nav>
+
 
     <asp:Button runat="server" CssClass="back-to-top" ID="backToTop" Text="↑" ToolTip="Back to Top" UseSubmitBehavior="false" />
 </asp:Content>

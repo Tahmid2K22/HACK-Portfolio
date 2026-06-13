@@ -79,12 +79,8 @@ namespace HACK_portfolio
                     Session["Role"] = user["Role"];
                     Session["IsAdmin"] = user["Role"].ToString() == "Admin";
 
-                    // Success message
-                    loginStatus.Text = "Login successful! Redirecting...";
-                    loginStatus.CssClass = "status success";
-
-                    // Redirect to profile page
-                    Response.AddHeader("REFRESH", "1;URL=profile.aspx");
+                    // Redirect to profile page immediately so master page sees the Session values
+                    Response.Redirect("~/profile.aspx");
                 }
                 else
                 {

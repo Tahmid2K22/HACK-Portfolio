@@ -12,6 +12,20 @@
         <main class="site-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
         </main>
+
+        <nav class="glass-nav">
+            <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#home" Text="Home" />
+            <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#about" Text="About" />
+            <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#projects" Text="Projects" />
+            <asp:HyperLink runat="server" NavigateUrl="~/members.aspx" Text="Members" />
+            <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#contact" Text="Contact" />
+            <% if (Session["UserID"] == null) { %>
+                <a href="/login.aspx">Login</a>
+            <% } else { %>
+                <a href="/profile.aspx">Profile</a>
+            <% } %>
+            <asp:Literal ID="litSessionDebug" runat="server" Visible="false" />
+        </nav>
     </form>
     <script src="/scripts/projects-data.js?v=2"></script>
     <script src="/scripts/projects.js?v=2"></script>
