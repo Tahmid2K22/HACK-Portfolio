@@ -9,7 +9,5 @@ namespace HACK_portfolio
     public partial class SiteMaster
     {
         protected global::System.Web.UI.WebControls.HyperLink navLogin;
-        protected global::System.Web.UI.WebControls.HyperLink navProfile;
-        protected global::System.Web.UI.WebControls.Literal litSessionDebug;
     }
 }

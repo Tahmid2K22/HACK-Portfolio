@@ -6,7 +6,7 @@
     <div class="admin-container">
         <aside class="admin-sidebar">
             <div class="admin-logo">
-                <asp:Image runat="server" ImageUrl="~/img/hackLogo.png" AlternateText="HACK Logo" />
+                <asp:Image runat="server" ImageUrl="~/img/default-project-cover.svg" AlternateText="HACK Logo" />
                 <h2>Admin Panel</h2>
             </div>
             <nav class="admin-nav">
@@ -33,7 +33,7 @@
                 <h1>Dashboard</h1>
                 <div class="admin-user-info">
                     <span>Welcome, <strong><asp:Label runat="server" ID="lblAdminName" Text="Admin"></asp:Label></strong></span>
-                    <asp:HyperLink runat="server" NavigateUrl="~/login.aspx" CssClass="logout-btn">Logout</asp:HyperLink>
+                    <asp:HyperLink runat="server" NavigateUrl="~/logout.aspx" CssClass="logout-btn">Logout</asp:HyperLink>
                 </div>
             </header>
 
@@ -71,87 +71,82 @@
             <div class="dashboard-grid">
                 <section class="dashboard-section">
                     <h2>Recent Projects</h2>
-                    <div class="table-container">
-                        <table class="admin-table">
-                            <thead>
-                                <tr>
-                                    <th>Project Name</th>
-                                    <th>Category</th>
-                                    <th>Status</th>
-                                    <th>Date</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Autonomous Robot</td>
-                                    <td>Robotics</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>2026-06-01</td>
-                                    <td>
-                                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                        <asp:LinkButton runat="server" CssClass="action-btn delete-btn">Delete</asp:LinkButton>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Smart Home IoT</td>
-                                    <td>IoT</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>2026-05-28</td>
-                                    <td>
-                                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                        <asp:LinkButton runat="server" CssClass="action-btn delete-btn">Delete</asp:LinkButton>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Computer Vision</td>
-                                    <td>AI/ML</td>
-                                    <td><span class="badge badge-warning">Pending</span></td>
-                                    <td>2026-05-20</td>
-                                    <td>
-                                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                        <asp:LinkButton runat="server" CssClass="action-btn delete-btn">Delete</asp:LinkButton>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <asp:Repeater ID="rptRecentProjects" runat="server">
+                        <HeaderTemplate>
+                            <div class="table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Project Name</th>
+                                            <th>Category</th>
+                                            <th>Status</th>
+                                            <th>Date</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                                        <tr>
+                                            <td><%# Eval("ProjectName") %></td>
+                                            <td><%# Eval("CategoryName") %></td>
+                                            <td><span class="badge <%# GetStatusBadgeClass(Eval("Status")) %>"><%# Eval("Status") %></span></td>
+                                            <td><%# Eval("CreatedDate") %></td>
+                                            <td>
+                                                <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
+                                                <asp:LinkButton runat="server" CssClass="action-btn delete-btn" OnClientClick="return false;">Delete</asp:LinkButton>
+                                            </td>
+                                        </tr>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </FooterTemplate>
+                        <EmptyDataTemplate>
+                            <div class="admin-empty">No recent projects found.</div>
+                        </EmptyDataTemplate>
+                    </asp:Repeater>
                 </section>
 
                 <section class="dashboard-section">
                     <h2>Recent Members</h2>
-                    <div class="table-container">
-                        <table class="admin-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Role</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>John Doe</td>
-                                    <td>john@example.com</td>
-                                    <td><span class="badge badge-info">Member</span></td>
-                                    <td>
-                                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                        <asp:LinkButton runat="server" CssClass="action-btn delete-btn">Delete</asp:LinkButton>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Jane Smith</td>
-                                    <td>jane@example.com</td>
-                                    <td><span class="badge badge-info">Member</span></td>
-                                    <td>
-                                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                        <asp:LinkButton runat="server" CssClass="action-btn delete-btn">Delete</asp:LinkButton>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <asp:Repeater ID="rptRecentMembers" runat="server">
+                        <HeaderTemplate>
+                            <div class="table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                                        <tr>
+                                            <td><%# Eval("FullName") %></td>
+                                            <td><%# Eval("Email") %></td>
+                                            <td><span class="badge <%# GetRoleBadgeClass(Eval("Role")) %>"><%# Eval("Role") %></span></td>
+                                            <td><span class="badge <%# GetStatusBadgeClass(Eval("Status")) %>"><%# Eval("Status") %></span></td>
+                                            <td>
+                                                <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
+                                                <asp:LinkButton runat="server" CssClass="action-btn delete-btn" OnClientClick="return false;">Delete</asp:LinkButton>
+                                            </td>
+                                        </tr>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </FooterTemplate>
+                        <EmptyDataTemplate>
+                            <div class="admin-empty">No recent members found.</div>
+                        </EmptyDataTemplate>
+                    </asp:Repeater>
                 </section>
             </div>
         </main>

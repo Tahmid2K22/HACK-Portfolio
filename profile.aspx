@@ -22,7 +22,7 @@
 
         <section class="auth-panel form-panel profile-panel">
             <div class="profile-head">
-                <asp:Label runat="server" ID="profileStatus" CssClass="status" EnableViewState="false" />
+                <asp:Label runat="server" ID="profileStatus" CssClass="status" EnableViewState="false" style="display:none;" />
                 <div class="profile-avatar">
                     <div class="avatar-circle">
                         <asp:Image runat="server" ID="profileImage" CssClass="avatar-img" AlternateText="Avatar" Visible="false" />

@@ -18,9 +18,10 @@
         if (!element) {
             return;
         }
-
         element.textContent = message || '';
         element.classList.toggle('error', Boolean(isError));
+        // Hide the status element when there's no message to avoid showing stray text
+        element.style.display = message ? 'block' : 'none';
     }
 
     function normalizeEmail(email) {

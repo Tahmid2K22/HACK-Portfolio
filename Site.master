@@ -19,12 +19,7 @@
             <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#projects" Text="Projects" />
             <asp:HyperLink runat="server" NavigateUrl="~/members.aspx" Text="Members" />
             <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx#contact" Text="Contact" />
-            <% if (Session["UserID"] == null) { %>
-                <a href="/login.aspx">Login</a>
-            <% } else { %>
-                <a href="/profile.aspx">Profile</a>
-            <% } %>
-            <asp:Literal ID="litSessionDebug" runat="server" Visible="false" />
+            <asp:HyperLink ID="navLogin" runat="server" NavigateUrl="~/login.aspx" Text="Login" />
         </nav>
     </form>
     <script src="/scripts/projects-data.js?v=2"></script>

@@ -18,7 +18,7 @@
             <div class="projects-grid all-projects-layout">
                 <div class="project-card" data-category="robotics">
                     <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/project1.png" AlternateText="Autonomous Robot" CssClass="project-image" />
+                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Autonomous Robot" CssClass="project-image" />
                         <div class="project-overlay">
                             <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=1" CssClass="view-details-btn" Text="View Details" />
                         </div>
@@ -32,7 +32,7 @@
 
                 <div class="project-card" data-category="iot">
                     <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/project2.png" AlternateText="Smart Home System" CssClass="project-image" />
+                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Smart Home System" CssClass="project-image" />
                         <div class="project-overlay">
                             <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=2" CssClass="view-details-btn" Text="View Details" />
                         </div>
@@ -46,7 +46,7 @@
 
                 <div class="project-card" data-category="embedded">
                     <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/project3.png" AlternateText="Microcontroller Project" CssClass="project-image" />
+                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Microcontroller Project" CssClass="project-image" />
                         <div class="project-overlay">
                             <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=3" CssClass="view-details-btn" Text="View Details" />
                         </div>
@@ -60,7 +60,7 @@
 
                 <div class="project-card" data-category="ai">
                     <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/project4.png" AlternateText="Vision System" CssClass="project-image" />
+                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Vision System" CssClass="project-image" />
                         <div class="project-overlay">
                             <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=4" CssClass="view-details-btn" Text="View Details" />
                         </div>
@@ -74,7 +74,7 @@
 
                 <div class="project-card" data-category="robotics">
                     <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/project5.png" AlternateText="Drone Project" CssClass="project-image" />
+                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Drone Project" CssClass="project-image" />
                         <div class="project-overlay">
                             <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=5" CssClass="view-details-btn" Text="View Details" />
                         </div>
@@ -88,7 +88,7 @@
 
                 <div class="project-card" data-category="iot">
                     <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/project6.png" AlternateText="Weather Station" CssClass="project-image" />
+                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Weather Station" CssClass="project-image" />
                         <div class="project-overlay">
                             <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=6" CssClass="view-details-btn" Text="View Details" />
                         </div>
@@ -102,7 +102,7 @@
 
                 <div class="project-card" data-category="software">
                     <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/project7.png" AlternateText="Portfolio App" CssClass="project-image" />
+                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Portfolio App" CssClass="project-image" />
                         <div class="project-overlay">
                             <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=7" CssClass="view-details-btn" Text="View Details" />
                         </div>
@@ -116,7 +116,7 @@
 
                 <div class="project-card" data-category="hardware">
                     <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/project8.png" AlternateText="Custom Board" CssClass="project-image" />
+                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Custom Board" CssClass="project-image" />
                         <div class="project-overlay">
                             <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=8" CssClass="view-details-btn" Text="View Details" />
                         </div>
