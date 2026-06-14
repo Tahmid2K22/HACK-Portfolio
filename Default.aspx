@@ -4,7 +4,7 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Panel runat="server" CssClass="welcome-bg-layer" ID="home" ClientIDMode="Static">
         <div class="hero-inner">
-            <asp:Image runat="server" ImageUrl="~/img/default-project-cover.svg" AlternateText="HACK Logo Large" CssClass="welcome-bg-logo" />
+            <asp:Image runat="server" ImageUrl="~/img/hackLogo.png" AlternateText="HACK Logo Large" CssClass="welcome-bg-logo" />
             <h2 class="welcome-bg-title">Welcome to the Hardware Acceleration Club of KUET!</h2>
             <p class="welcome-bg-text">
                 Step into the world of Hardware Acceleration Club of KUET.

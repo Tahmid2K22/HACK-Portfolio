@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using MySql.Data.MySqlClient;
+using HACK_portfolio;
 
 namespace HACK_portfolio.admin
 {
@@ -9,7 +10,7 @@ namespace HACK_portfolio.admin
         protected void Page_Load(object sender, EventArgs e)
         {
             // Check if user is authenticated as admin
-            if (Session["IsAdmin"] == null || !(bool)Session["IsAdmin"])
+            if (!AuthHelper.IsAdmin(Session))
             {
                 Response.Redirect("~/login.aspx");
                 return;
@@ -87,27 +88,36 @@ namespace HACK_portfolio.admin
         {
             if (status == null) return "badge-secondary";
             string value = status.ToString().ToLowerInvariant();
-            return value switch
+            switch (value)
             {
-                "active" => "badge-success",
-                "pending" => "badge-warning",
-                "completed" => "badge-info",
-                "inactive" => "badge-danger",
-                _ => "badge-secondary",
-            };
+                case "active":
+                    return "badge-success";
+                case "pending":
+                    return "badge-warning";
+                case "completed":
+                    return "badge-info";
+                case "inactive":
+                    return "badge-danger";
+                default:
+                    return "badge-secondary";
+            }
         }
 
         public string GetRoleBadgeClass(object role)
         {
             if (role == null) return "badge-secondary";
             string value = role.ToString().ToLowerInvariant();
-            return value switch
+            switch (value)
             {
-                "admin" => "badge-danger",
-                "member" => "badge-info",
-                "guest" => "badge-warning",
-                _ => "badge-secondary",
-            };
+                case "admin":
+                    return "badge-danger";
+                case "member":
+                    return "badge-info";
+                case "guest":
+                    return "badge-warning";
+                default:
+                    return "badge-secondary";
+            }
         }
     }
 }

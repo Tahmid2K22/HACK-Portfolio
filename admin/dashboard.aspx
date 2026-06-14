@@ -6,7 +6,7 @@
     <div class="admin-container">
         <aside class="admin-sidebar">
             <div class="admin-logo">
-                <asp:Image runat="server" ImageUrl="~/img/default-project-cover.svg" AlternateText="HACK Logo" />
+                <asp:Image runat="server" ImageUrl="~/img/hackLogo.png" AlternateText="HACK Logo" />
                 <h2>Admin Panel</h2>
             </div>
             <nav class="admin-nav">

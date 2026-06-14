@@ -109,12 +109,7 @@ namespace HACK_portfolio
                     {
                         DataRow row = dtUser.Rows[0];
                         // Set session variables
-                        Session["UserID"] = row["UserID"];
-                        Session["Username"] = row["Username"];
-                        Session["FirstName"] = row["FirstName"];
-                        Session["LastName"] = row["LastName"];
-                        Session["Role"] = row["Role"];
-                        Session["IsAdmin"] = row["Role"].ToString() == "Admin";
+                        AuthHelper.SetUserSession(Session, row);
 
                         registerStatus.Text = "Registration successful! Logging you in...";
                         registerStatus.CssClass = "status success";

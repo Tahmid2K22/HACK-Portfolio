@@ -71,13 +71,7 @@ namespace HACK_portfolio
                     }
 
                     // Set session variables
-                    Session["UserID"] = user["UserID"];
-                    Session["Username"] = user["Username"];
-                    Session["FirstName"] = user["FirstName"];
-                    Session["LastName"] = user["LastName"];
-                    Session["Email"] = user["Email"];
-                    Session["Role"] = user["Role"];
-                    Session["IsAdmin"] = user["Role"].ToString() == "Admin";
+                    AuthHelper.SetUserSession(Session, user);
 
                     // Redirect to profile page immediately so master page sees the Session values
                     Response.Redirect("~/profile.aspx");

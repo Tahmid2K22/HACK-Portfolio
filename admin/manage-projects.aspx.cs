@@ -10,9 +10,10 @@ namespace HACK_portfolio.admin
         protected void Page_Load(object sender, EventArgs e)
         {
             // Check if user is authenticated as admin
-            if (Session["IsAdmin"] == null || !(bool)Session["IsAdmin"])
+            if (!AuthHelper.IsAdmin(Session))
             {
                 Response.Redirect("~/login.aspx");
+                return;
             }
 
             if (!IsPostBack)

@@ -35,5 +35,15 @@ namespace HACK_portfolio.admin
         /// lblPendingRequests control.
         /// </summary>
         protected global::System.Web.UI.WebControls.Label lblPendingRequests;
+
+        /// <summary>
+        /// rptRecentProjects control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Repeater rptRecentProjects;
+
+        /// <summary>
+        /// rptRecentMembers control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Repeater rptRecentMembers;
     }
 }

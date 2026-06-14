@@ -57,7 +57,7 @@ namespace HACK_portfolio
 
                     // Role badge
                     profileRoleBadge.InnerText = role;
-                    if (role == "Admin")
+                    if (AuthHelper.IsAdmin(Session))
                     {
                         profileRoleBadge.Attributes["class"] = "role-badge role-admin";
                         adminLink.Visible = true;

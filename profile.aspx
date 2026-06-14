@@ -1,6 +1,7 @@
 <%@ Page Title="Profile | HACK Portal" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="HACK_portfolio.Profile" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="/styles/auth.css" />
+    <script>document.documentElement.classList.add('auth-bg');document.body.classList.add('auth-bg');var sc=document.querySelector('.site-content');if(sc)sc.classList.add('auth-bg');</script>
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="auth-shell profile-shell">
@@ -22,7 +23,7 @@
 
         <section class="auth-panel form-panel profile-panel">
             <div class="profile-head">
-                <asp:Label runat="server" ID="profileStatus" CssClass="status" EnableViewState="false" style="display:none;" />
+                <asp:Label runat="server" ID="profileStatus" CssClass="status" EnableViewState="false" />
                 <div class="profile-avatar">
                     <div class="avatar-circle">
                         <asp:Image runat="server" ID="profileImage" CssClass="avatar-img" AlternateText="Avatar" Visible="false" />
