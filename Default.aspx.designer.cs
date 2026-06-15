@@ -43,5 +43,15 @@ namespace HACK_portfolio
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button backToTop;
+
+        /// <summary>
+        /// contactEmailLink control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.HyperLink contactEmailLink;
+
+        /// <summary>
+        /// contactAddress control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label contactAddress;
     }
 }

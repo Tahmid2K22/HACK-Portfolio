@@ -8,5 +8,59 @@ namespace HACK_portfolio
 {
     public partial class ProjectPage
     {
+        /// <summary>
+        /// projImage control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Image projImage;
+
+        /// <summary>
+        /// projTitle control.
+        /// </summary>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl projTitle;
+
+        /// <summary>
+        /// projCategory control.
+        /// </summary>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl projCategory;
+
+        /// <summary>
+        /// projDescription control.
+        /// </summary>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl projDescription;
+
+        /// <summary>
+        /// pnlDetails control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlDetails;
+
+        /// <summary>
+        /// pnlTechnologies control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlTechnologies;
+
+        /// <summary>
+        /// projTechnologies control.
+        /// </summary>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl projTechnologies;
+
+        /// <summary>
+        /// projDemo control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.HyperLink projDemo;
+
+        /// <summary>
+        /// projGit control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.HyperLink projGit;
+
+        /// <summary>
+        /// projVideo control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.HyperLink projVideo;
+
+        /// <summary>
+        /// pnlNotFound control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlNotFound;
     }
 }

@@ -20,5 +20,10 @@ namespace HACK_portfolio.admin
         /// ddlRole control.
         /// </summary>
         protected global::System.Web.UI.WebControls.DropDownList ddlRole;
+
+        /// <summary>
+        /// rptUsers control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Repeater rptUsers;
     }
 }

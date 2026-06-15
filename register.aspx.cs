@@ -10,17 +10,14 @@ namespace HACK_portfolio
         {
             if (!IsPostBack)
             {
-                // Check if already logged in
                 if (Session["UserID"] != null)
                 {
                     Response.Redirect("~/profile.aspx");
                 }
             }
-
-            btnCreateAccount.Click += BtnCreateAccount_Click;
         }
 
-        private void BtnCreateAccount_Click(object sender, EventArgs e)
+        protected void BtnCreateAccount_Click(object sender, EventArgs e)
         {
             string fullName = txtFullName.Text.Trim();
             string email = txtEmail.Text.Trim();
@@ -91,7 +88,7 @@ namespace HACK_portfolio
                     new MySqlParameter("@FirstName", firstName),
                     new MySqlParameter("@LastName", lastName),
                     new MySqlParameter("@Department", string.IsNullOrEmpty(department) ? "" : department),
-                    new MySqlParameter("@YearOfStudy", string.IsNullOrEmpty(yearLevel) ? (object)DBNull.Value : yearLevel),
+                    new MySqlParameter("@YearOfStudy", string.IsNullOrEmpty(yearLevel) ? (object)DBNull.Value : int.Parse(yearLevel)),
                     new MySqlParameter("@Bio", string.IsNullOrEmpty(bio) ? "" : bio),
                     new MySqlParameter("@Skills", interest)
                 };
@@ -101,7 +98,7 @@ namespace HACK_portfolio
                 if (result > 0)
                 {
                     // Get the newly created user ID and log them in automatically
-                    string getUserQuery = "SELECT UserID, Username, FirstName, LastName, Role FROM Users WHERE Email = @Email";
+                    string getUserQuery = "SELECT UserID, Username, Email, FirstName, LastName, Role FROM Users WHERE Email = @Email";
                     MySqlParameter[] getUserParams = { new MySqlParameter("@Email", email) };
                     DataTable dtUser = DatabaseHelper.ExecuteQuery(getUserQuery, getUserParams);
 

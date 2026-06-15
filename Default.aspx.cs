@@ -10,7 +10,31 @@ namespace HACK_portfolio
         {
             if (!IsPostBack)
             {
+                LoadSiteSettings();
                 LoadProjects();
+            }
+        }
+
+        private void LoadSiteSettings()
+        {
+            try
+            {
+                string email = DatabaseHelper.GetSetting("ContactEmail", null);
+                if (!string.IsNullOrEmpty(email))
+                {
+                    contactEmailLink.NavigateUrl = "mailto:" + email;
+                    contactEmailLink.Text = email;
+                }
+
+                string address = DatabaseHelper.GetSetting("Address", null);
+                if (!string.IsNullOrEmpty(address))
+                {
+                    contactAddress.Text = address;
+                }
+            }
+            catch (Exception)
+            {
+                // Keep default values from markup
             }
         }
 

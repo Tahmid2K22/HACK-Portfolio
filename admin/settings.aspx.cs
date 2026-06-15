@@ -6,7 +6,6 @@ namespace HACK_portfolio.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check if user is authenticated as admin
             if (!AuthHelper.IsAdmin(Session))
             {
                 Response.Redirect("~/login.aspx");
@@ -21,65 +20,41 @@ namespace HACK_portfolio.admin
 
         private void LoadSettings()
         {
-            // TODO: Load settings from database or configuration file
-            // For now, default values are set in the ASPX page
+            try
+            {
+                txtMinPasswordLength.Text = DatabaseHelper.GetSetting("MinPasswordLength", "8");
+                chkRequireUppercase.Checked = bool.Parse(DatabaseHelper.GetSetting("RequireUppercase", "true"));
+                chkRequireNumbers.Checked = bool.Parse(DatabaseHelper.GetSetting("RequireNumbers", "true"));
+                chkRequireSpecialChars.Checked = bool.Parse(DatabaseHelper.GetSetting("RequireSpecialChars", "false"));
+                txtSessionTimeout.Text = DatabaseHelper.GetSetting("SessionTimeout", "30");
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Load settings error: " + ex.Message);
+            }
         }
 
         protected void btnSaveSettings_Click(object sender, EventArgs e)
         {
             try
             {
-                // TODO: Save settings to database or configuration file
-                // Validate input values
-                if (string.IsNullOrWhiteSpace(txtSiteName.Text))
-                {
-                    // Show error message
-                    return;
-                }
+                DatabaseHelper.SetSetting("MinPasswordLength", txtMinPasswordLength.Text.Trim());
+                DatabaseHelper.SetSetting("RequireUppercase", chkRequireUppercase.Checked.ToString());
+                DatabaseHelper.SetSetting("RequireNumbers", chkRequireNumbers.Checked.ToString());
+                DatabaseHelper.SetSetting("RequireSpecialChars", chkRequireSpecialChars.Checked.ToString());
+                DatabaseHelper.SetSetting("SessionTimeout", txtSessionTimeout.Text.Trim());
 
-                // Save site settings
-                string siteName = txtSiteName.Text.Trim();
-                string siteDescription = txtSiteDescription.Text.Trim();
-                string contactEmail = txtContactEmail.Text.Trim();
-
-                // Save email configuration
-                string smtpHost = txtSmtpHost.Text.Trim();
-                int smtpPort = int.Parse(txtSmtpPort.Text);
-                string smtpUsername = txtSmtpUsername.Text.Trim();
-                string smtpPassword = txtSmtpPassword.Text;
-                bool enableSSL = chkEnableSSL.Checked;
-
-                // Save security settings
-                int minPasswordLength = int.Parse(txtMinPasswordLength.Text);
-                bool requireUppercase = chkRequireUppercase.Checked;
-                bool requireNumbers = chkRequireNumbers.Checked;
-                bool requireSpecialChars = chkRequireSpecialChars.Checked;
-                int sessionTimeout = int.Parse(txtSessionTimeout.Text);
-
-                // Show success message
                 pnlSuccessMessage.Visible = true;
             }
             catch (Exception ex)
             {
-                // TODO: Log error and show error message
-                // For now, just hide success message
                 pnlSuccessMessage.Visible = false;
+                System.Diagnostics.Debug.WriteLine("Save settings error: " + ex.Message);
             }
         }
 
         protected void btnResetSettings_Click(object sender, EventArgs e)
         {
-            // Reset to default values
-            txtSiteName.Text = "HACK Portfolio";
-            txtSiteDescription.Text = "Official portfolio website for HACK club projects and members";
-            txtContactEmail.Text = "contact@hackportfolio.com";
-
-            txtSmtpHost.Text = "";
-            txtSmtpPort.Text = "587";
-            txtSmtpUsername.Text = "";
-            txtSmtpPassword.Text = "";
-            chkEnableSSL.Checked = true;
-
             txtMinPasswordLength.Text = "8";
             chkRequireUppercase.Checked = true;
             chkRequireNumbers.Checked = true;

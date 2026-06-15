@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="button-row">
-                    <asp:Button runat="server" ID="btnCreateAccount" CssClass="primary-btn" Text="Create account" />
+                    <asp:Button runat="server" ID="btnCreateAccount" CssClass="primary-btn" Text="Create account" OnClick="BtnCreateAccount_Click" />
                     <asp:HyperLink runat="server" CssClass="secondary-btn" NavigateUrl="~/login.aspx" Text="Go to login" />
                 </div>
             </asp:Panel>

@@ -1,6 +1,6 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
-using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 
 namespace HACK_portfolio.admin
@@ -9,7 +9,6 @@ namespace HACK_portfolio.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check if user is authenticated as admin
             if (!AuthHelper.IsAdmin(Session))
             {
                 Response.Redirect("~/login.aspx");
@@ -21,9 +20,6 @@ namespace HACK_portfolio.admin
                 LoadCategories();
                 LoadProjects();
             }
-
-            ddlCategory.SelectedIndexChanged += FilterChanged;
-            ddlStatus.SelectedIndexChanged += FilterChanged;
         }
 
         private void LoadCategories()
@@ -34,11 +30,11 @@ namespace HACK_portfolio.admin
                 DataTable dt = DatabaseHelper.ExecuteQuery(query);
 
                 ddlCategory.Items.Clear();
-                ddlCategory.Items.Add(new ListItem("All Categories", "all"));
+                ddlCategory.Items.Add(new System.Web.UI.WebControls.ListItem("All Categories", "all"));
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    ddlCategory.Items.Add(new ListItem(row["CategoryName"].ToString(), row["CategoryID"].ToString()));
+                    ddlCategory.Items.Add(new System.Web.UI.WebControls.ListItem(row["CategoryName"].ToString(), row["CategoryID"].ToString()));
                 }
             }
             catch (Exception ex)
@@ -58,24 +54,31 @@ namespace HACK_portfolio.admin
                     LEFT JOIN ProjectMembers pm ON p.ProjectID = pm.ProjectID
                     WHERE 1=1";
 
-                // Apply filters
+                var parameters = new List<MySqlParameter>();
+
                 if (ddlCategory.SelectedValue != "all")
                 {
-                    query += " AND p.CategoryID = " + ddlCategory.SelectedValue;
+                    query += " AND p.CategoryID = @categoryId";
+                    parameters.Add(new MySqlParameter("@categoryId", int.Parse(ddlCategory.SelectedValue)));
                 }
 
                 if (ddlStatus.SelectedValue != "all")
                 {
-                    query += " AND p.Status = '" + ddlStatus.SelectedValue + "'";
+                    query += " AND p.Status = @status";
+                    parameters.Add(new MySqlParameter("@status", ddlStatus.SelectedValue));
+                }
+
+                if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
+                {
+                    query += " AND (p.ProjectName LIKE @search)";
+                    parameters.Add(new MySqlParameter("@search", "%" + txtSearch.Text.Trim() + "%"));
                 }
 
                 query += " GROUP BY p.ProjectID ORDER BY p.CreatedDate DESC";
 
-                DataTable dt = DatabaseHelper.ExecuteQuery(query);
-
-                // Bind to a repeater or gridview if you have one
-                // For now, just store in ViewState
-                ViewState["ProjectsData"] = dt;
+                DataTable dt = DatabaseHelper.ExecuteQuery(query, parameters.ToArray());
+                rptProjects.DataSource = dt;
+                rptProjects.DataBind();
             }
             catch (Exception ex)
             {
@@ -83,15 +86,51 @@ namespace HACK_portfolio.admin
             }
         }
 
-        private void FilterChanged(object sender, EventArgs e)
+        protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadProjects();
         }
 
+        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadProjects();
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadProjects();
+        }
+
+        protected void btnDeleteProject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var btn = (System.Web.UI.WebControls.LinkButton)sender;
+                int projectId = int.Parse(btn.CommandArgument);
+                DatabaseHelper.ExecuteNonQuery("DELETE FROM Projects WHERE ProjectID = @id",
+                    new MySqlParameter[] { new MySqlParameter("@id", projectId) });
+                LoadProjects();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error deleting project: " + ex.Message);
+            }
+        }
+
         protected void btnAddProject_Click(object sender, EventArgs e)
         {
-            // Redirect to add project page
             Response.Redirect("~/admin/edit-project.aspx");
+        }
+
+        protected string GetStatusBadgeClass(object status)
+        {
+            if (status == null) return "badge-info";
+            string s = status.ToString().ToLower();
+            if (s == "active") return "badge-success";
+            if (s == "pending") return "badge-warning";
+            if (s == "completed") return "badge-info";
+            if (s == "archived") return "badge-secondary";
+            return "badge-info";
         }
     }
 }

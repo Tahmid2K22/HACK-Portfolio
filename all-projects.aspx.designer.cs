@@ -8,5 +8,14 @@ namespace HACK_portfolio
 {
     public partial class AllProjects
     {
+        /// <summary>
+        /// ProjectsRepeater control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Repeater ProjectsRepeater;
+
+        /// <summary>
+        /// modalImage control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Image modalImage;
     }
 }

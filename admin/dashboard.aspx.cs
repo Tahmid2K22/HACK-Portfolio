@@ -28,10 +28,17 @@ namespace HACK_portfolio.admin
         {
             try
             {
-                lblTotalProjects.Text = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM Projects")?.ToString() ?? "0";
-                lblTotalUsers.Text = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM Users")?.ToString() ?? "0";
-                lblActiveProjects.Text = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM Projects WHERE Status = 'Active'")?.ToString() ?? "0";
-                lblPendingRequests.Text = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM MembershipRequests WHERE Status = 'Pending'")?.ToString() ?? "0";
+                object totalProjects = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM Projects");
+                lblTotalProjects.Text = totalProjects != null ? totalProjects.ToString() : "0";
+
+                object totalUsers = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM Users");
+                lblTotalUsers.Text = totalUsers != null ? totalUsers.ToString() : "0";
+
+                object activeProjects = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM Projects WHERE Status = 'Active'");
+                lblActiveProjects.Text = activeProjects != null ? activeProjects.ToString() : "0";
+
+                object pendingRequests = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM MembershipRequests WHERE Status = 'Pending'");
+                lblPendingRequests.Text = pendingRequests != null ? pendingRequests.ToString() : "0";
 
                 if (Session["FirstName"] != null)
                 {

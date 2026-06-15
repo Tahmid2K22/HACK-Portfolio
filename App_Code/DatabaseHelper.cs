@@ -92,6 +92,49 @@ namespace HACK_portfolio
             return result;
         }
 
+        public static string GetSetting(string key, string defaultValue = null)
+        {
+            try
+            {
+                string query = "SELECT SettingValue FROM SiteSettings WHERE SettingKey = @key";
+                using (MySqlConnection conn = GetConnection())
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@key", key);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return result.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                // Silently fail and return default
+            }
+            return defaultValue;
+        }
+
+        public static void SetSetting(string key, string value)
+        {
+            string query = @"INSERT INTO SiteSettings (SettingKey, SettingValue, SettingType, Category) 
+                             VALUES (@key, @value, 'String', 'General') 
+                             ON DUPLICATE KEY UPDATE SettingValue = @value";
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@key", key);
+                    cmd.Parameters.AddWithValue("@value", value);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public static string HashPassword(string password)
         {
             using (System.Security.Cryptography.SHA256 sha256 = System.Security.Cryptography.SHA256.Create())

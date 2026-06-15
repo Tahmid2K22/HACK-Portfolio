@@ -13,7 +13,7 @@
                 <asp:Repeater runat="server" ID="MembersRepeater">
                     <ItemTemplate>
                         <div class="member-card">
-                            <asp:Image runat="server" ImageUrl='<%# Eval("ProfileImageUrl") != DBNull.Value && !string.IsNullOrEmpty(Eval("ProfileImageUrl").ToString()) ? Eval("ProfileImageUrl") : "~/img/default-profile.svg" %>' AlternateText='<%# Eval("FirstName") + " " + Eval("LastName") %>' CssClass="member-avatar" />
+                            <asp:Image runat="server" ImageUrl="~/img/image.png" AlternateText='<%# Eval("FirstName") + " " + Eval("LastName") %>' CssClass="member-avatar" />
                             <h3 class="member-name"><%# Eval("FirstName") %> <%# Eval("LastName") %></h3>
                             <p class="member-role"><%# Eval("Department") %></p>
                             <%# !string.IsNullOrEmpty(Eval("Bio").ToString()) ? "<p class='member-bio'>" + Eval("Bio") + "</p>" : "" %>

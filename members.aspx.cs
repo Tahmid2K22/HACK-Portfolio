@@ -25,7 +25,6 @@ namespace HACK_portfolio
             }
             catch (Exception ex)
             {
-                // Handle error - could log or display message
                 Response.Write("<script>console.error('Error loading members: " + ex.Message + "');</script>");
             }
         }

@@ -101,10 +101,9 @@
         <h2>Contact Us</h2>
         <p>
             Have an idea or want to collaborate? Reach out to us!<br>
-            Email: <asp:HyperLink runat="server" NavigateUrl="mailto:hack@kuet.ac.bd" Text="hack@kuet.ac.bd" />
+            Email: <asp:HyperLink runat="server" ID="contactEmailLink" NavigateUrl="mailto:hack@kuet.ac.bd" Text="hack@kuet.ac.bd" />
             <br>
-            Location: Khulna University of Engineering & Technology (KUET)<br>
-            Khulna-9203, Bangladesh
+            Location: <asp:Label runat="server" ID="contactAddress" Text="Khulna University of Engineering & Technology (KUET), Khulna-9203, Bangladesh" />
         </p>
     </section>
 

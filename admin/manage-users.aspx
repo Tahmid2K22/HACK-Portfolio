@@ -11,19 +11,19 @@
             </div>
             <nav class="admin-nav">
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/dashboard.aspx" CssClass="admin-nav-link">
-                    <span>📊</span> Dashboard
+                    Dashboard
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/manage-projects.aspx" CssClass="admin-nav-link">
-                    <span>🚀</span> Manage Projects
+                    Manage Projects
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/manage-users.aspx" CssClass="admin-nav-link active">
-                    <span>👥</span> Manage Users
+                    Manage Users
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/settings.aspx" CssClass="admin-nav-link">
-                    <span>⚙️</span> Settings
+                    Settings
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx" CssClass="admin-nav-link">
-                    <span>🏠</span> Back to Site
+                    Back to Site
                 </asp:HyperLink>
             </nav>
         </aside>
@@ -39,7 +39,8 @@
             <div class="admin-content">
                 <div class="filter-bar">
                     <asp:TextBox runat="server" ID="txtSearch" PlaceHolder="Search users..." CssClass="search-input"></asp:TextBox>
-                    <asp:DropDownList runat="server" ID="ddlRole" CssClass="filter-select" AutoPostBack="true">
+                    <asp:Button runat="server" Text="Search" CssClass="btn-primary" OnClick="btnSearch_Click" />
+                    <asp:DropDownList runat="server" ID="ddlRole" CssClass="filter-select" AutoPostBack="true" OnSelectedIndexChanged="ddlRole_SelectedIndexChanged">
                         <asp:ListItem Text="All Roles" Value="all"></asp:ListItem>
                         <asp:ListItem Text="Admin" Value="admin"></asp:ListItem>
                         <asp:ListItem Text="Member" Value="member"></asp:ListItem>
@@ -48,108 +49,43 @@
                 </div>
 
                 <div class="table-container">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Join Date</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>#001</td>
-                                <td>John Doe</td>
-                                <td>john.doe@example.com</td>
-                                <td><span class="badge badge-danger">Admin</span></td>
-                                <td>2025-01-15</td>
-                                <td><span class="badge badge-success">Active</span></td>
-                                <td>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn view-btn">View</asp:HyperLink>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                    <asp:LinkButton runat="server" CssClass="action-btn delete-btn" OnClientClick="return confirm('Are you sure you want to delete this user?');">Delete</asp:LinkButton>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#002</td>
-                                <td>Jane Smith</td>
-                                <td>jane.smith@example.com</td>
-                                <td><span class="badge badge-info">Member</span></td>
-                                <td>2025-02-20</td>
-                                <td><span class="badge badge-success">Active</span></td>
-                                <td>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn view-btn">View</asp:HyperLink>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                    <asp:LinkButton runat="server" CssClass="action-btn delete-btn" OnClientClick="return confirm('Are you sure you want to delete this user?');">Delete</asp:LinkButton>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#003</td>
-                                <td>Mike Johnson</td>
-                                <td>mike.johnson@example.com</td>
-                                <td><span class="badge badge-info">Member</span></td>
-                                <td>2025-03-10</td>
-                                <td><span class="badge badge-success">Active</span></td>
-                                <td>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn view-btn">View</asp:HyperLink>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                    <asp:LinkButton runat="server" CssClass="action-btn delete-btn" OnClientClick="return confirm('Are you sure you want to delete this user?');">Delete</asp:LinkButton>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#004</td>
-                                <td>Sarah Williams</td>
-                                <td>sarah.williams@example.com</td>
-                                <td><span class="badge badge-info">Member</span></td>
-                                <td>2025-04-05</td>
-                                <td><span class="badge badge-success">Active</span></td>
-                                <td>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn view-btn">View</asp:HyperLink>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                    <asp:LinkButton runat="server" CssClass="action-btn delete-btn" OnClientClick="return confirm('Are you sure you want to delete this user?');">Delete</asp:LinkButton>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#005</td>
-                                <td>Robert Brown</td>
-                                <td>robert.brown@example.com</td>
-                                <td><span class="badge badge-secondary">Guest</span></td>
-                                <td>2025-05-18</td>
-                                <td><span class="badge badge-warning">Inactive</span></td>
-                                <td>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn view-btn">View</asp:HyperLink>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                    <asp:LinkButton runat="server" CssClass="action-btn delete-btn" OnClientClick="return confirm('Are you sure you want to delete this user?');">Delete</asp:LinkButton>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#006</td>
-                                <td>Emily Davis</td>
-                                <td>emily.davis@example.com</td>
-                                <td><span class="badge badge-info">Member</span></td>
-                                <td>2025-06-02</td>
-                                <td><span class="badge badge-success">Active</span></td>
-                                <td>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn view-btn">View</asp:HyperLink>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                    <asp:LinkButton runat="server" CssClass="action-btn delete-btn" OnClientClick="return confirm('Are you sure you want to delete this user?');">Delete</asp:LinkButton>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <asp:Repeater ID="rptUsers" runat="server">
+                        <HeaderTemplate>
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Join Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("UserID") %></td>
+                                        <td><%# Eval("FirstName") %> <%# Eval("LastName") %></td>
+                                        <td><%# Eval("Email") %></td>
+                                        <td><span class="badge <%# GetRoleBadgeClass(Eval("Role")) %>"><%# Eval("Role") %></span></td>
+                                        <td><%# Eval("JoinDate", "{0:yyyy-MM-dd}") %></td>
+                                        <td><span class="badge <%# (bool)Eval("IsActive") ? "badge-success" : "badge-warning" %>"><%# (bool)Eval("IsActive") ? "Active" : "Inactive" %></span></td>
+                                        <td>
+                                            <asp:HyperLink runat="server" NavigateUrl='<%# "~/admin/edit-user.aspx?id=" + Eval("UserID") %>' CssClass="action-btn edit-btn">Edit</asp:HyperLink>
+                                            <asp:LinkButton runat="server" CssClass="action-btn delete-btn" CommandName="Delete" CommandArgument='<%# Eval("UserID") %>' OnClick="btnDeleteUser_Click" OnClientClick="return confirm('Are you sure you want to delete this user?');">Delete</asp:LinkButton>
+                                        </td>
+                                    </tr>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                                </tbody>
+                            </table>
+                        </FooterTemplate>
+                    </asp:Repeater>
                 </div>
 
-                <div class="pagination">
-                    <asp:LinkButton runat="server" CssClass="page-btn">Previous</asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="page-btn active">1</asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="page-btn">2</asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="page-btn">3</asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="page-btn">Next</asp:LinkButton>
-                </div>
             </div>
         </main>
     </div>

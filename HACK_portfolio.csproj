@@ -208,6 +208,28 @@
 	  <DesignTime>True</DesignTime>
 	  <SubType>Code</SubType>
 	</Compile>
+	<Content Include="admin\edit-project.aspx" />
+	<Compile Include="admin\edit-project.aspx.cs">
+	  <DependentUpon>edit-project.aspx</DependentUpon>
+	  <SubType>Code</SubType>
+	</Compile>
+	<Compile Include="admin\edit-project.aspx.designer.cs">
+	  <DependentUpon>edit-project.aspx</DependentUpon>
+	  <AutoGen>True</AutoGen>
+	  <DesignTime>True</DesignTime>
+	  <SubType>Code</SubType>
+	</Compile>
+	<Content Include="admin\edit-user.aspx" />
+	<Compile Include="admin\edit-user.aspx.cs">
+	  <DependentUpon>edit-user.aspx</DependentUpon>
+	  <SubType>Code</SubType>
+	</Compile>
+	<Compile Include="admin\edit-user.aspx.designer.cs">
+	  <DependentUpon>edit-user.aspx</DependentUpon>
+	  <AutoGen>True</AutoGen>
+	  <DesignTime>True</DesignTime>
+	  <SubType>Code</SubType>
+	</Compile>
 	<Content Include="scripts\auth.js" />
 	<Content Include="scripts\projects.js" />
 	<Content Include="scripts\projects-data.js" />
@@ -216,6 +238,7 @@
 	<Content Include="styles\home.css" />
 	<Content Include="App_Data\users.json" />
 	<Content Include="img\hackLogo.png" />
+	<Content Include="img\image.png" />
 	<None Include="LICENSE" />
 	<None Include=".gitignore" />
   </ItemGroup>

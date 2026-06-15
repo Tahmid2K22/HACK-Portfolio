@@ -16,117 +16,23 @@
             </div>
 
             <div class="projects-grid all-projects-layout">
-                <div class="project-card" data-category="robotics">
-                    <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Autonomous Robot" CssClass="project-image" />
-                        <div class="project-overlay">
-                            <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=1" CssClass="view-details-btn" Text="View Details" />
+                <asp:Repeater runat="server" ID="ProjectsRepeater">
+                    <ItemTemplate>
+                        <div class="project-card" data-category='<%# Eval("CategoryName").ToString().ToLower() %>' data-id='<%# Eval("ProjectID") %>'>
+                            <div class="project-image-wrapper">
+                                <asp:Image runat="server" ImageUrl='<%# Eval("ThumbnailImageUrl") %>' AlternateText='<%# Eval("ProjectName") %>' CssClass="project-image" />
+                                <div class="project-overlay">
+                                    <asp:HyperLink runat="server" NavigateUrl='<%# "~/project.aspx?id=" + Eval("ProjectID") %>' CssClass="view-details-btn" Text="View Details" />
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3><%# Eval("ProjectName") %></h3>
+                                <p class="project-category"><%# Eval("CategoryName") %></p>
+                                <p class="project-description"><%# Eval("ShortDescription") %></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Autonomous Navigation Robot</h3>
-                        <p class="project-category">Robotics</p>
-                        <p class="project-description">A wheeled robot with obstacle detection and autonomous pathfinding capabilities.</p>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="iot">
-                    <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Smart Home System" CssClass="project-image" />
-                        <div class="project-overlay">
-                            <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=2" CssClass="view-details-btn" Text="View Details" />
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Smart Home IoT System</h3>
-                        <p class="project-category">IoT</p>
-                        <p class="project-description">Connected home automation system with real-time monitoring and control.</p>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="embedded">
-                    <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Microcontroller Project" CssClass="project-image" />
-                        <div class="project-overlay">
-                            <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=3" CssClass="view-details-btn" Text="View Details" />
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>STM32 Firmware Development</h3>
-                        <p class="project-category">Embedded Systems</p>
-                        <p class="project-description">Real-time embedded system with sensor integration and data processing.</p>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="ai">
-                    <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Vision System" CssClass="project-image" />
-                        <div class="project-overlay">
-                            <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=4" CssClass="view-details-btn" Text="View Details" />
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Computer Vision System</h3>
-                        <p class="project-category">AI/ML</p>
-                        <p class="project-description">ML-powered object detection and recognition for robotics applications.</p>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="robotics">
-                    <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Drone Project" CssClass="project-image" />
-                        <div class="project-overlay">
-                            <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=5" CssClass="view-details-btn" Text="View Details" />
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Quadcopter Drone</h3>
-                        <p class="project-category">Robotics</p>
-                        <p class="project-description">Custom-built quadcopter with flight control and stabilization systems.</p>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="iot">
-                    <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Weather Station" CssClass="project-image" />
-                        <div class="project-overlay">
-                            <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=6" CssClass="view-details-btn" Text="View Details" />
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Weather Monitoring Station</h3>
-                        <p class="project-category">IoT</p>
-                        <p class="project-description">IoT weather station with cloud data logging and real-time updates.</p>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="software">
-                    <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Portfolio App" CssClass="project-image" />
-                        <div class="project-overlay">
-                            <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=7" CssClass="view-details-btn" Text="View Details" />
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Club Portfolio App</h3>
-                        <p class="project-category">Software</p>
-                        <p class="project-description">A software portfolio to track club events and members.</p>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="hardware">
-                    <div class="project-image-wrapper">
-                        <asp:Image runat="server" ImageUrl="~/img/default-project-thumb.svg" AlternateText="Custom Board" CssClass="project-image" />
-                        <div class="project-overlay">
-                            <asp:HyperLink runat="server" NavigateUrl="~/project.aspx?id=8" CssClass="view-details-btn" Text="View Details" />
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Custom ESP32 Board</h3>
-                        <p class="project-category">Hardware</p>
-                        <p class="project-description">A fully custom PCB with ESP32 and power management.</p>
-                    </div>
-                </div>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
         </div>
     </section>
@@ -145,6 +51,4 @@
             </div>
         </div>
     </div>
-
-
 </asp:Content>

@@ -11,19 +11,19 @@
             </div>
             <nav class="admin-nav">
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/dashboard.aspx" CssClass="admin-nav-link active">
-                    <span>📊</span> Dashboard
+                    Dashboard
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/manage-projects.aspx" CssClass="admin-nav-link">
-                    <span>🚀</span> Manage Projects
+                    Manage Projects
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/manage-users.aspx" CssClass="admin-nav-link">
-                    <span>👥</span> Manage Users
+                    Manage Users
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/settings.aspx" CssClass="admin-nav-link">
-                    <span>⚙️</span> Settings
+                    Settings
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx" CssClass="admin-nav-link">
-                    <span>🏠</span> Back to Site
+                    Back to Site
                 </asp:HyperLink>
             </nav>
         </aside>
@@ -39,28 +39,28 @@
 
             <div class="dashboard-stats">
                 <div class="stat-card">
-                    <div class="stat-icon">🚀</div>
+                    <div class="stat-icon">P</div>
                     <div class="stat-info">
                         <h3><asp:Label runat="server" ID="lblTotalProjects" Text="24"></asp:Label></h3>
                         <p>Total Projects</p>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">👥</div>
+                    <div class="stat-icon">M</div>
                     <div class="stat-info">
                         <h3><asp:Label runat="server" ID="lblTotalUsers" Text="156"></asp:Label></h3>
                         <p>Total Members</p>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">✅</div>
+                    <div class="stat-icon">A</div>
                     <div class="stat-info">
                         <h3><asp:Label runat="server" ID="lblActiveProjects" Text="12"></asp:Label></h3>
                         <p>Active Projects</p>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">📝</div>
+                    <div class="stat-icon">R</div>
                     <div class="stat-info">
                         <h3><asp:Label runat="server" ID="lblPendingRequests" Text="8"></asp:Label></h3>
                         <p>Pending Requests</p>
@@ -81,7 +81,6 @@
                                             <th>Category</th>
                                             <th>Status</th>
                                             <th>Date</th>
-                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -92,10 +91,6 @@
                                             <td><%# Eval("CategoryName") %></td>
                                             <td><span class="badge <%# GetStatusBadgeClass(Eval("Status")) %>"><%# Eval("Status") %></span></td>
                                             <td><%# Eval("CreatedDate") %></td>
-                                            <td>
-                                                <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                                <asp:LinkButton runat="server" CssClass="action-btn delete-btn" OnClientClick="return false;">Delete</asp:LinkButton>
-                                            </td>
                                         </tr>
                         </ItemTemplate>
                         <FooterTemplate>
@@ -103,9 +98,6 @@
                                 </table>
                             </div>
                         </FooterTemplate>
-                        <EmptyDataTemplate>
-                            <div class="admin-empty">No recent projects found.</div>
-                        </EmptyDataTemplate>
                     </asp:Repeater>
                 </section>
 
@@ -121,7 +113,6 @@
                                             <th>Email</th>
                                             <th>Role</th>
                                             <th>Status</th>
-                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -132,10 +123,6 @@
                                             <td><%# Eval("Email") %></td>
                                             <td><span class="badge <%# GetRoleBadgeClass(Eval("Role")) %>"><%# Eval("Role") %></span></td>
                                             <td><span class="badge <%# GetStatusBadgeClass(Eval("Status")) %>"><%# Eval("Status") %></span></td>
-                                            <td>
-                                                <asp:HyperLink runat="server" NavigateUrl="#" CssClass="action-btn edit-btn">Edit</asp:HyperLink>
-                                                <asp:LinkButton runat="server" CssClass="action-btn delete-btn" OnClientClick="return false;">Delete</asp:LinkButton>
-                                            </td>
                                         </tr>
                         </ItemTemplate>
                         <FooterTemplate>
@@ -143,9 +130,6 @@
                                 </table>
                             </div>
                         </FooterTemplate>
-                        <EmptyDataTemplate>
-                            <div class="admin-empty">No recent members found.</div>
-                        </EmptyDataTemplate>
                     </asp:Repeater>
                 </section>
             </div>

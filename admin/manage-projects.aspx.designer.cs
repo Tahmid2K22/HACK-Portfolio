@@ -25,5 +25,10 @@ namespace HACK_portfolio.admin
         /// ddlStatus control.
         /// </summary>
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+
+        /// <summary>
+        /// rptProjects control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Repeater rptProjects;
     }
 }

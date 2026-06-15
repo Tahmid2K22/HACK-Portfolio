@@ -11,19 +11,19 @@
             </div>
             <nav class="admin-nav">
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/dashboard.aspx" CssClass="admin-nav-link">
-                    <span>📊</span> Dashboard
+                    Dashboard
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/manage-projects.aspx" CssClass="admin-nav-link">
-                    <span>🚀</span> Manage Projects
+                    Manage Projects
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/manage-users.aspx" CssClass="admin-nav-link">
-                    <span>👥</span> Manage Users
+                    Manage Users
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/admin/settings.aspx" CssClass="admin-nav-link active">
-                    <span>⚙️</span> Settings
+                    Settings
                 </asp:HyperLink>
                 <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx" CssClass="admin-nav-link">
-                    <span>🏠</span> Back to Site
+                    Back to Site
                 </asp:HyperLink>
             </nav>
         </aside>
@@ -35,50 +35,6 @@
 
             <div class="admin-content">
                 <div class="settings-container">
-                    <!-- Site Settings Section -->
-                    <section class="settings-section">
-                        <h2>Site Settings</h2>
-                        <div class="form-group">
-                            <label for="txtSiteName">Site Name</label>
-                            <asp:TextBox runat="server" ID="txtSiteName" CssClass="form-control" Text="HACK Portfolio"></asp:TextBox>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtSiteDescription">Site Description</label>
-                            <asp:TextBox runat="server" ID="txtSiteDescription" CssClass="form-control" TextMode="MultiLine" Rows="3" Text="Official portfolio website for HACK club projects and members"></asp:TextBox>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtContactEmail">Contact Email</label>
-                            <asp:TextBox runat="server" ID="txtContactEmail" CssClass="form-control" TextMode="Email" Text="contact@hackportfolio.com"></asp:TextBox>
-                        </div>
-                    </section>
-
-                    <!-- Email Configuration Section -->
-                    <section class="settings-section">
-                        <h2>Email Configuration</h2>
-                        <div class="form-group">
-                            <label for="txtSmtpHost">SMTP Host</label>
-                            <asp:TextBox runat="server" ID="txtSmtpHost" CssClass="form-control" PlaceHolder="smtp.example.com"></asp:TextBox>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtSmtpPort">SMTP Port</label>
-                            <asp:TextBox runat="server" ID="txtSmtpPort" CssClass="form-control" TextMode="Number" Text="587"></asp:TextBox>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtSmtpUsername">SMTP Username</label>
-                            <asp:TextBox runat="server" ID="txtSmtpUsername" CssClass="form-control" PlaceHolder="username@example.com"></asp:TextBox>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtSmtpPassword">SMTP Password</label>
-                            <asp:TextBox runat="server" ID="txtSmtpPassword" CssClass="form-control" TextMode="Password" PlaceHolder="••••••••"></asp:TextBox>
-                        </div>
-                        <div class="form-group">
-                            <label>
-                                <asp:CheckBox runat="server" ID="chkEnableSSL" Checked="true" />
-                                Enable SSL
-                            </label>
-                        </div>
-                    </section>
-
                     <!-- Security Settings Section -->
                     <section class="settings-section">
                         <h2>Security Settings</h2>
@@ -118,7 +74,7 @@
 
                     <!-- Success Message -->
                     <asp:Panel runat="server" ID="pnlSuccessMessage" CssClass="alert alert-success" Visible="false">
-                        <span>✓</span> Settings saved successfully!
+                        Settings saved successfully!
                     </asp:Panel>
                 </div>
             </div>

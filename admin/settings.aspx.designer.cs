@@ -12,46 +12,6 @@ namespace HACK_portfolio.admin
     public partial class settings
     {
         /// <summary>
-        /// txtSiteName control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox txtSiteName;
-
-        /// <summary>
-        /// txtSiteDescription control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox txtSiteDescription;
-
-        /// <summary>
-        /// txtContactEmail control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox txtContactEmail;
-
-        /// <summary>
-        /// txtSmtpHost control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox txtSmtpHost;
-
-        /// <summary>
-        /// txtSmtpPort control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox txtSmtpPort;
-
-        /// <summary>
-        /// txtSmtpUsername control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox txtSmtpUsername;
-
-        /// <summary>
-        /// txtSmtpPassword control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox txtSmtpPassword;
-
-        /// <summary>
-        /// chkEnableSSL control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.CheckBox chkEnableSSL;
-
-        /// <summary>
         /// txtMinPasswordLength control.
         /// </summary>
         protected global::System.Web.UI.WebControls.TextBox txtMinPasswordLength;
