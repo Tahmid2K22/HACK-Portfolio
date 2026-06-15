@@ -52,8 +52,8 @@ namespace HACK_portfolio
             session["FirstName"] = user["FirstName"];
             session["LastName"] = user["LastName"];
             session["Email"] = user["Email"];
-            session["Role"] = user["Role"]?.ToString() ?? string.Empty;
-            session["IsAdmin"] = string.Equals(user["Role"]?.ToString(), "Admin", StringComparison.OrdinalIgnoreCase);
+            session["Role"] = user["Role"] != null ? user["Role"].ToString() : string.Empty;
+            session["IsAdmin"] = string.Equals(user["Role"] != null ? user["Role"].ToString() : null, "Admin", StringComparison.OrdinalIgnoreCase);
         }
     }
 }
